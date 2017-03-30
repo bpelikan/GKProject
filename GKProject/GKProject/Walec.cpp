@@ -31,7 +31,6 @@ void Walec::Draw(GLfloat r, GLfloat h)
 {
 	glColor3f(0.5f, 1.0f, 1.0f);
 	glBegin(GL_TRIANGLE_STRIP);
-
 	for (float i = 0; i <= 360; i += 0.1f)
 	{
 		glVertex3f(wspPoczatkowe[0] + r * cos((i*3.14f) / 180.0f), 
@@ -42,7 +41,6 @@ void Walec::Draw(GLfloat r, GLfloat h)
 			wspPoczatkowe[1] + r * sin((i*3.14f) / 180.0f), 
 			wspPoczatkowe[2]);
 	}
-
 	glEnd();
 
 
@@ -55,19 +53,16 @@ void Walec::Draw(GLfloat r, GLfloat h)
 			wspPoczatkowe[1] + r * sin((i*3.14f) / 180.0f), 
 			wspPoczatkowe[2]);
 	}
-
 	glEnd();
 
 	glColor3f(0.0f, 0.0f, 1.0f);
 	glBegin(GL_TRIANGLE_FAN);
-	wspPoczatkowe[2] = wspPoczatkowe[2] + h;
-	glVertex3fv(wspPoczatkowe);
+	glVertex3f(wspPoczatkowe[0], wspPoczatkowe[1], wspPoczatkowe[2] + h);
 	for (float i = 0; i <= 360; i += 0.1f)
 	{
-		glVertex3f(wspPoczatkowe[0] + r * cos((i*3.14f) / 180.0f), 
-			wspPoczatkowe[1] + r * sin((i*3.14f) / 180.0f), 
-			wspPoczatkowe[2]);
+		glVertex3f(wspPoczatkowe[0] + r * cos((i*3.14f) / 180.0f),
+			wspPoczatkowe[1] + r * sin((i*3.14f) / 180.0f),
+			wspPoczatkowe[2] + h);
 	}
-
 	glEnd();
 }
