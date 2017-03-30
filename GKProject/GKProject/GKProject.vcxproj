@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Coordinate.cpp" />
+    <ClCompile Include="Sfera.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Stozek.cpp" />
@@ -155,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coordinate.h" />
+    <ClInclude Include="Sfera.h" />
     <ClInclude Include="RESOURCE.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Stozek.h" />

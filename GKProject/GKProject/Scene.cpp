@@ -25,9 +25,19 @@ void Scene::RenderScene()
 	////stozek.Draw(10, 40, 15, 10);
 	//stozek.Draw();
 
-	Walec walec(10, 10, 5);
-	walec.Draw(5, 10);
+	/*Walec walec(10, 10, 5);
+	walec.Draw(5, 10);*/
 
+
+	/*GLfloat x, y, z;
+	GLfloat r = 9;
+	for (GLfloat i = 0; i < 180; i += 0.1f)
+	{
+		x = r*cos()	
+	}*/
+
+	Sfera luk(10, 20, 40);
+	luk.Draw(90, 90, 40);
 	
 	
 }
