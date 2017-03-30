@@ -36,8 +36,9 @@ void Scene::RenderScene()
 		x = r*cos()	
 	}*/
 
-	Sfera luk(10, 20, 40);
-	luk.Draw(90, 90, 40);
-	
+	Sfera sfera(0, 0, 0);
+	//glTranslatef(20, 30, 20);
+	sfera.Draw(180, 180, 40, 1.0f, 1.0f, 0.6f);
+	sfera.Draw(180, 180, -40, 1.0f, 1.0f, 0.6f);
 	
 }
