@@ -151,6 +151,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Stozek.cpp" />
     <ClCompile Include="Szescian.cpp" />
+    <ClCompile Include="Transformation.cpp" />
     <ClCompile Include="Walec.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Stozek.h" />
     <ClInclude Include="Szescian.h" />
+    <ClInclude Include="Transformation.h" />
     <ClInclude Include="Walec.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
