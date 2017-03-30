@@ -9,6 +9,7 @@
 #include "Coordinate.h"
 #include "Stozek.h"
 #include "Walec.h"
+#include "Sfera.h"
 
 class Scene
 {

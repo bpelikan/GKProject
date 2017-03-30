@@ -25,9 +25,21 @@ void Scene::RenderScene()
 	////stozek.Draw(10, 40, 15, 10);
 	//stozek.Draw();
 
-	Walec walec(10, 10, 5);
-	walec.Draw(5, 10);
+	/*Walec walec(10, 10, 5);
+	walec.Draw(5, 10);*/
 
-	
-	
+
+	/*GLfloat x, y, z;
+	GLfloat r = 9;
+	for (GLfloat i = 0; i < 180; i += 0.1f)
+	{
+		x = r*cos()	
+	}*/
+
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);	//Uzyskanie siatki
+	Sfera sfera(0, 0, 0);
+	//glTranslatef(20, 30, 20);
+	//sfera.Draw(180, 180, 40, 1.0f, 1.0f, 0.6f);
+	//sfera.Draw(180, 180, -40, 1.0f, 1.0f, 0.6f);
+	sfera.Draw(360, 360, 40, 1.0f, 1.0f, 0.4f);
 }
