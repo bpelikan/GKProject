@@ -36,9 +36,10 @@ void Scene::RenderScene()
 		x = r*cos()	
 	}*/
 
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);	//Uzyskanie siatki
 	Sfera sfera(0, 0, 0);
 	//glTranslatef(20, 30, 20);
-	sfera.Draw(180, 180, 40, 1.0f, 1.0f, 0.6f);
-	sfera.Draw(180, 180, -40, 1.0f, 1.0f, 0.6f);
-	
+	//sfera.Draw(180, 180, 40, 1.0f, 1.0f, 0.6f);
+	//sfera.Draw(180, 180, -40, 1.0f, 1.0f, 0.6f);
+	sfera.Draw(360, 360, 40, 1.0f, 1.0f, 0.4f);
 }
