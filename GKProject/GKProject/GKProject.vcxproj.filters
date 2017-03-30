@@ -33,9 +33,6 @@
     <ClCompile Include="Walec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Transformation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESOURCE.h">
@@ -54,9 +51,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Walec.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Transformation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
