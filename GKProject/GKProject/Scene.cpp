@@ -39,15 +39,50 @@ void Scene::RenderScene()
 
 	Smiglo smiglo;
 	Stozek stozekPodSmiglem;
-
 	Smiglo smiglo2;
 	Stozek stozekPodSmiglem2;
-
 	Smiglo smiglo3;
 	Stozek stozekPodSmiglem3;
-
 	Smiglo smiglo4;
 	Stozek stozekPodSmiglem4;
+
+	Walec walecPodSmiglem;
+	Walec walecPodSmiglem2;
+	Walec walecPodSmiglem3;
+	Walec walecPodSmiglem4;
+
+
+	glScaled(0.5, 0.5, 0.5);
+
+	glPushMatrix();
+	glTranslated(-12, 0, 0);
+	glRotated(-45, 1, 0, 0);
+	glRotated(-45, 0, 1, 0);
+	walecPodSmiglem.Draw(5, 35);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslated(-12, 110, 0);
+	glRotated(45, 1, 0, 0);
+	glRotated(-45, 0, 1, 0);
+	walecPodSmiglem.Draw(5, 35);
+	glPopMatrix();
+
+
+	glPushMatrix();
+	glTranslated(-12, 110, 110);
+	glRotated(135, 1, 0, 0);
+	glRotated(-45, 0, 1, 0);
+	walecPodSmiglem.Draw(5, 35);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslated(-12, 0, 110);
+	glRotated(-135, 1, 0, 0);
+	glRotated(-45, 0, 1, 0);
+	walecPodSmiglem.Draw(5, 35);
+	glPopMatrix();
+
 
 	glPushMatrix();
 	smiglo.Draw();

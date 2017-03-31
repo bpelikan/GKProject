@@ -83,7 +83,7 @@ void Stozek::Draw(GLfloat rg, GLfloat rd, GLfloat h1, GLfloat h2)
 	}
 	glEnd();
 
-	glColor3f(0.0f, 1.0f, 1.0f);
+	glColor3f(1.0f, 0.5f, 0.5f);
 	glBegin(GL_TRIANGLE_FAN);
 	glVertex3f(wspPoczatkowe[0], wspPoczatkowe[1], wspPoczatkowe[2] - h1 - h2);
 	for (float i = 0; i <= 360; i += 0.1f)

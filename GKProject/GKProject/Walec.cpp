@@ -29,7 +29,7 @@ Walec::~Walec()
 
 void Walec::Draw(GLfloat r, GLfloat h)
 {
-	glColor3f(0.5f, 1.0f, 1.0f);
+	glColor3f(1.0f, 0.5f, 0.5f);
 	glBegin(GL_TRIANGLE_STRIP);
 	for (float i = 0; i <= 360; i += 0.1f)
 	{
