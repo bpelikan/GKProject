@@ -36,7 +36,8 @@ void Scene::RenderScene()
 		x = r*cos()	
 	}*/
 	Nozki nozki;
-	nozki.Draw(40, 3, 40);   // parametry to wysokoœæ , promieñ i d³ugoœæ nó¿ek
+	nozki.Draw(40, 3, 40,-15);   // parametry to wysokoœæ , promieñ i d³ugoœæ nó¿ek i kat ( gdy damy za du¿y k¹t to utracimy 
+									// po³¹czenie pomiêdzy wygiêtym walcem a tym ale i tak powinnien on byæ ma³y
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 

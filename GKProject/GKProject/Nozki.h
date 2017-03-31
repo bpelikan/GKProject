@@ -14,6 +14,6 @@ public:
 private:
 	GLfloat wspPoczatkowe[3];
 public:
-	void Draw(GLfloat h, GLfloat r, GLfloat dl);
+	void Draw(GLfloat h, GLfloat r, GLfloat dl , int kat);
 };
 

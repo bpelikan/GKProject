@@ -28,7 +28,7 @@ Nozki::~Nozki()
 }
 
 
-void Nozki::Draw(GLfloat h, GLfloat r, GLfloat dl)
+void Nozki::Draw(GLfloat h, GLfloat r, GLfloat dl , int kat)
 {
 	GLfloat PI = 3.1415;
 
@@ -54,15 +54,14 @@ void Nozki::Draw(GLfloat h, GLfloat r, GLfloat dl)
 
 	glPushMatrix();
 	glRotated(90, 1, 0, 0);
-	glRotated(15, 1, 0, 0);
-
+	glRotated(kat, 1, 0, 0);
 	glTranslated(r, 0, -1);
 	walecPionowy.Draw(r, h);
 	glPopMatrix();
 
 	glPushMatrix();
 	glRotated(90, 1, 0, 0);
-	glRotated(15, 1, 0, 0);
+	glRotated(kat, 1, 0, 0);
 	glTranslated(-r - dl, 0, -1);
 	walecPionowy2.Draw(r, h);
 	glPopMatrix();
