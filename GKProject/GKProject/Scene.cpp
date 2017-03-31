@@ -86,9 +86,12 @@ void Scene::RenderScene()
 
 	glPushMatrix();
 	smiglo.Draw();
+	smiglo.Draw();
 	glRotatef(90, 0, 1, 0);
 	stozekPodSmiglem.Draw(4, 6, 8, 8);
 	glPopMatrix();
+
+	
 
 	glPushMatrix();
 	glTranslated(0, 110, 0);
@@ -118,4 +121,5 @@ void Scene::RenderScene()
 	//sfera.Draw(180, 180, 40, 1.0f, 1.0f, 0.6f);
 	//sfera.Draw(180, 180, -40, 1.0f, 1.0f, 0.6f);
 	//sfera.Draw(360, 360, 40, 1.0f, 1.0f, 0.4f);
+
 }

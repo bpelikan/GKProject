@@ -8,12 +8,19 @@ Smiglo::Smiglo()
 		wspPoczatkowe[i] = 0;
 	}
 }
+
 Smiglo::Smiglo(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)
 {
 	wspPoczatkowe[0] = wsp_X;
 	wspPoczatkowe[1] = wsp_Y;
 	wspPoczatkowe[2] = wsp_Z;
 }
+
+Smiglo::~Smiglo()
+{
+}
+
+
 
 void Smiglo::Draw()
 {
@@ -72,6 +79,5 @@ void Smiglo::Draw()
 		j = j - 10;
 	}
 }
-Smiglo::~Smiglo()
-{
-}
+
+
