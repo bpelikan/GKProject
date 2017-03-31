@@ -89,20 +89,19 @@ void Scene::RenderScene()
 	glPopMatrix();
 
 
-<<<<<<< HEAD
 	glPushMatrix();
 	smiglo.Draw();
 	smiglo.Draw();
 	glRotatef(90, 0, 1, 0);
 	stozekPodSmiglem.Draw(4, 6, 8, 8);
 	glPopMatrix();
-=======
+
 	//glPushMatrix();
 	//smiglo.Draw();
 	//glRotatef(90, 0, 1, 0);					// dalem komentarz zeby to smiglo nie zaslanialo nozek
 	//stozekPodSmiglem.Draw(4, 6, 8, 8);
 	//glPopMatrix();
->>>>>>> origin/master
+
 
 	
 
