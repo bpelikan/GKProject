@@ -10,7 +10,7 @@
 #include "Stozek.h"
 #include "Walec.h"
 #include "Sfera.h"
-
+#include "Smiglo.h"
 class Scene
 {
 public:

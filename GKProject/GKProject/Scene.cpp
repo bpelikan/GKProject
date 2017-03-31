@@ -35,11 +35,52 @@ void Scene::RenderScene()
 	{
 		x = r*cos()	
 	}*/
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+	Smiglo smiglo;
+	Stozek stozekPodSmiglem;
+
+	Smiglo smiglo2;
+	Stozek stozekPodSmiglem2;
+
+	Smiglo smiglo3;
+	Stozek stozekPodSmiglem3;
+
+	Smiglo smiglo4;
+	Stozek stozekPodSmiglem4;
+
+	glPushMatrix();
+	smiglo.Draw();
+	glRotatef(90, 0, 1, 0);
+	stozekPodSmiglem.Draw(4, 6, 8, 8);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslated(0, 110, 0);
+	smiglo2.Draw();
+	glRotatef(90, 0, 1, 0);
+	stozekPodSmiglem2.Draw(4, 6, 8, 8);
+	glPopMatrix();
+
+
+	glPushMatrix();
+	glTranslated(0, 110, 110);
+	smiglo2.Draw();
+	glRotatef(90, 0, 1, 0);
+	stozekPodSmiglem2.Draw(4, 6, 8, 8);
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslated(0, 0, 110);
+	smiglo2.Draw();
+	glRotatef(90, 0, 1, 0);
+	stozekPodSmiglem2.Draw(4, 6, 8, 8);
+	glPopMatrix();
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);	//Uzyskanie siatki
-	Sfera sfera(0, 0, 0);
+	//Sfera sfera(0, 0, 0);
 	//glTranslatef(20, 30, 20);
 	//sfera.Draw(180, 180, 40, 1.0f, 1.0f, 0.6f);
 	//sfera.Draw(180, 180, -40, 1.0f, 1.0f, 0.6f);
-	sfera.Draw(360, 360, 40, 1.0f, 1.0f, 0.4f);
+	//sfera.Draw(360, 360, 40, 1.0f, 1.0f, 0.4f);
 }

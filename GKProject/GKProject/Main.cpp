@@ -686,12 +686,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			break;
 
 			// Display the about box
-		case ID_HELP_ABOUT:
-			DialogBox(hInstance,
-				MAKEINTRESOURCE(IDD_DIALOG_ABOUT),
-				hWnd,
-				AboutDlgProc);
-			break;
+
 		}
 	}
 	break;

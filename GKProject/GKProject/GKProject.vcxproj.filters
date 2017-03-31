@@ -36,6 +36,9 @@
     <ClCompile Include="Sfera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Smiglo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESOURCE.h">
@@ -57,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sfera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Smiglo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
