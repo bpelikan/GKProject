@@ -35,9 +35,22 @@ void Scene::RenderScene()
 	{
 		x = r*cos()	
 	}*/
+	glScaled(0.5, 0.5, 0.5);
+	glPushMatrix();
 	Nozki nozki;
+	glRotated(90, 0, 0, 1);
+	glTranslated(75, 100, 0);
 	nozki.Draw(40, 3, 40,-15);   // parametry to wysokoœæ , promieñ i d³ugoœæ nó¿ek i kat ( gdy damy za du¿y k¹t to utracimy 
-									// po³¹czenie pomiêdzy wygiêtym walcem a tym ale i tak powinnien on byæ ma³y
+	glPopMatrix();				// po³¹czenie pomiêdzy wygiêtym walcem a tym ale i tak powinnien on byæ ma³y
+
+
+	glPushMatrix();
+	Nozki nozki2;
+	glRotated(90, 0, 0, 1);
+	glTranslated(75, 100, 110);
+	nozki.Draw(40, 3, 40, 15);
+	glPopMatrix();
+
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 
@@ -59,12 +72,12 @@ void Scene::RenderScene()
 
 	//glScaled(0.5, 0.5, 0.5);
 
-	//glPushMatrix();
-	//glTranslated(-12, 0, 0);
-	//glRotated(-45, 1, 0, 0);
-	//glRotated(-45, 0, 1, 0);
-	//walecPodSmiglem.Draw(5, 35);
-	//glPopMatrix();
+	glPushMatrix();
+	glTranslated(-12, 0, 0);
+	glRotated(-45, 1, 0, 0);
+	glRotated(-45, 0, 1, 0);
+	walecPodSmiglem.Draw(5, 35);
+	glPopMatrix();
 
 	glPushMatrix();
 	glTranslated(-12, 110, 0);
