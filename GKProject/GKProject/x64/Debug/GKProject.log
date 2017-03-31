@@ -1,3 +1,19 @@
-﻿  Scene.cpp
+﻿  Smiglo.cpp
+e:\gkproject\gkproject\gkproject\smiglo.cpp(27): warning C4305: 'initializing': truncation from 'double' to 'float'
+e:\gkproject\gkproject\gkproject\smiglo.cpp(35): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+e:\gkproject\gkproject\gkproject\smiglo.cpp(36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+e:\gkproject\gkproject\gkproject\smiglo.cpp(47): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+e:\gkproject\gkproject\gkproject\smiglo.cpp(48): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+e:\gkproject\gkproject\gkproject\smiglo.cpp(62): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+e:\gkproject\gkproject\gkproject\smiglo.cpp(63): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+e:\gkproject\gkproject\gkproject\smiglo.cpp(75): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+e:\gkproject\gkproject\gkproject\smiglo.cpp(76): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Generating Code...
+  Compiling...
+  Scene.cpp
+e:\gkproject\gkproject\gkproject\scene.cpp(32): warning C4101: 'nozki2': unreferenced local variable
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Main.cpp
   GKProject.vcxproj -> E:\GKProject\GKProject\x64\Debug\GKProject.exe
   GKProject.vcxproj -> E:\GKProject\GKProject\x64\Debug\GKProject.pdb (Full PDB)

@@ -18,23 +18,7 @@ void Scene::RenderScene()
 	Coordinate coordinate(true);		
 	coordinate.Draw();
 
-	/*Szescian szescian;
-	szescian.Draw();*/
 
-	//Stozek stozek;
-	////stozek.Draw(10, 40, 15, 10);
-	//stozek.Draw();
-
-	/*Walec walec(10, 10, 5);
-	walec.Draw(5, 10);*/
-
-
-	/*GLfloat x, y, z;
-	GLfloat r = 9;
-	for (GLfloat i = 0; i < 180; i += 0.1f)
-	{
-		x = r*cos()	
-	}*/
 	glScaled(0.5, 0.5, 0.5);
 	glPushMatrix();
 	Nozki nozki;
@@ -70,7 +54,6 @@ void Scene::RenderScene()
 	Walec walecPodSmiglem4;
 
 
-	//glScaled(0.5, 0.5, 0.5);
 
 	glPushMatrix();
 	glTranslated(-12, 0, 0);
@@ -109,11 +92,11 @@ void Scene::RenderScene()
 	stozekPodSmiglem.Draw(4, 6, 8, 8);
 	glPopMatrix();
 
-	//glPushMatrix();
-	//smiglo.Draw();
-	//glRotatef(90, 0, 1, 0);					// dalem komentarz zeby to smiglo nie zaslanialo nozek
-	//stozekPodSmiglem.Draw(4, 6, 8, 8);
-	//glPopMatrix();
+	glPushMatrix();
+	smiglo.Draw();
+	glRotatef(90, 0, 1, 0);					
+	stozekPodSmiglem.Draw(4, 6, 8, 8);
+	glPopMatrix();
 
 
 	
@@ -140,11 +123,5 @@ void Scene::RenderScene()
 	stozekPodSmiglem2.Draw(4, 6, 8, 8);
 	glPopMatrix();
 
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);	//Uzyskanie siatki
-	//Sfera sfera(0, 0, 0);
-	//glTranslatef(20, 30, 20);
-	//sfera.Draw(180, 180, 40, 1.0f, 1.0f, 0.6f);
-	//sfera.Draw(180, 180, -40, 1.0f, 1.0f, 0.6f);
-	//sfera.Draw(360, 360, 40, 1.0f, 1.0f, 0.4f);
 
 }
