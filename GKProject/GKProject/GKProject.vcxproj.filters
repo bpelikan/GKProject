@@ -39,6 +39,12 @@
     <ClCompile Include="Smiglo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Nozki.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WygietePoloczenie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESOURCE.h">
@@ -63,6 +69,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Smiglo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Nozki.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WygietePoloczenie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

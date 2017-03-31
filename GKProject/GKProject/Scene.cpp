@@ -35,7 +35,11 @@ void Scene::RenderScene()
 	{
 		x = r*cos()	
 	}*/
+	Nozki nozki;
+	nozki.Draw(40, 3, 40);   // parametry to wysokoœæ , promieñ i d³ugoœæ nó¿ek
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+
 
 	Smiglo smiglo;
 	Stozek stozekPodSmiglem;
@@ -52,14 +56,14 @@ void Scene::RenderScene()
 	Walec walecPodSmiglem4;
 
 
-	glScaled(0.5, 0.5, 0.5);
+	//glScaled(0.5, 0.5, 0.5);
 
-	glPushMatrix();
-	glTranslated(-12, 0, 0);
-	glRotated(-45, 1, 0, 0);
-	glRotated(-45, 0, 1, 0);
-	walecPodSmiglem.Draw(5, 35);
-	glPopMatrix();
+	//glPushMatrix();
+	//glTranslated(-12, 0, 0);
+	//glRotated(-45, 1, 0, 0);
+	//glRotated(-45, 0, 1, 0);
+	//walecPodSmiglem.Draw(5, 35);
+	//glPopMatrix();
 
 	glPushMatrix();
 	glTranslated(-12, 110, 0);
@@ -84,11 +88,11 @@ void Scene::RenderScene()
 	glPopMatrix();
 
 
-	glPushMatrix();
-	smiglo.Draw();
-	glRotatef(90, 0, 1, 0);
-	stozekPodSmiglem.Draw(4, 6, 8, 8);
-	glPopMatrix();
+	//glPushMatrix();
+	//smiglo.Draw();
+	//glRotatef(90, 0, 1, 0);					// dalem komentarz zeby to smiglo nie zaslanialo nozek
+	//stozekPodSmiglem.Draw(4, 6, 8, 8);
+	//glPopMatrix();
 
 	glPushMatrix();
 	glTranslated(0, 110, 0);
@@ -112,7 +116,7 @@ void Scene::RenderScene()
 	stozekPodSmiglem2.Draw(4, 6, 8, 8);
 	glPopMatrix();
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);	//Uzyskanie siatki
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);	//Uzyskanie siatki
 	//Sfera sfera(0, 0, 0);
 	//glTranslatef(20, 30, 20);
 	//sfera.Draw(180, 180, 40, 1.0f, 1.0f, 0.6f);
