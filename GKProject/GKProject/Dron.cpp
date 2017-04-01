@@ -1,6 +1,5 @@
 #include "Dron.h"
 
-#include "Nozki.h"
 #include "Smiglo.h"
 #include "Silnik.h"
 #include "Walec.h"
