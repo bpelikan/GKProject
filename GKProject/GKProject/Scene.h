@@ -7,11 +7,12 @@
 
 #include "Szescian.h"
 #include "Coordinate.h"
-#include "Stozek.h"
+#include "Silnik.h"
 #include "Walec.h"
 #include "Sfera.h"
 #include "Smiglo.h"
 #include "Nozki.h"
+
 class Scene
 {
 public:

@@ -1,34 +1,33 @@
-#include "Stozek.h"
+#include "Silnik.h"
 
-Stozek::Stozek()
+Silnik::Silnik()
 {
 	for (int i = 0; i < 3; i++) {
 		wspPoczatkowe[i] = 0;
 	}
 }
 
-Stozek::Stozek(GLfloat wsp[3])
+Silnik::Silnik(GLfloat wsp[3])
 {
 	for (int i = 0; i < 3; i++) {
 		wspPoczatkowe[i] = wsp[i];
 	}
 }
 
-Stozek::Stozek(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)
+Silnik::Silnik(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)
 {
 	wspPoczatkowe[0] = wsp_X;
 	wspPoczatkowe[1] = wsp_Y;
 	wspPoczatkowe[2] = wsp_Z;
 }
 
-
-Stozek::~Stozek()
+Silnik::~Silnik()
 {
 }
 
-
-void Stozek::Draw(GLfloat rg, GLfloat rd, GLfloat h1, GLfloat h2)
+void Silnik::Draw(GLfloat rg, GLfloat rd, GLfloat h1, GLfloat h2)
 {
+	//wype³nienie dziury w górnym sto¿ku
 	glColor3f(0.0f, 0.0f, 1.0f);
 	glBegin(GL_TRIANGLE_FAN);
 	glVertex3f(wspPoczatkowe[0], wspPoczatkowe[1], wspPoczatkowe[2] + h1);
@@ -40,7 +39,7 @@ void Stozek::Draw(GLfloat rg, GLfloat rd, GLfloat h1, GLfloat h2)
 	}
 	glEnd();
 
-
+	//górny sto¿ek
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_TRIANGLE_STRIP);
 	for (float i = 0; i <= 360; i += 0.1f)
@@ -55,6 +54,7 @@ void Stozek::Draw(GLfloat rg, GLfloat rd, GLfloat h1, GLfloat h2)
 	}
 	glEnd();
 
+	//czêœæ œrodkowa
 	glColor3f(1.0f, 0.5f, 0.0f);
 	glBegin(GL_TRIANGLE_STRIP);
 	for (float i = 0; i <= 360; i += 0.1f)
@@ -69,6 +69,7 @@ void Stozek::Draw(GLfloat rg, GLfloat rd, GLfloat h1, GLfloat h2)
 	}
 	glEnd();
 
+	//dolny sto¿ek
 	glColor3f(1.0f, 0.5f, 0.5f);
 	glBegin(GL_TRIANGLE_STRIP);
 	for (float i = 0; i <= 360; i += 0.1f)
@@ -83,6 +84,7 @@ void Stozek::Draw(GLfloat rg, GLfloat rd, GLfloat h1, GLfloat h2)
 	}
 	glEnd();
 
+	//wype³nienie dziury w dolnym sto¿ku
 	glColor3f(1.0f, 0.5f, 0.5f);
 	glBegin(GL_TRIANGLE_FAN);
 	glVertex3f(wspPoczatkowe[0], wspPoczatkowe[1], wspPoczatkowe[2] - h1 - h2);

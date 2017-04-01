@@ -1,7 +1,5 @@
 #include "Smiglo.h"
 
-
-
 Smiglo::Smiglo()
 {
 	for (int i = 0; i < 3; i++) {
@@ -19,8 +17,6 @@ Smiglo::Smiglo(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)
 Smiglo::~Smiglo()
 {
 }
-
-
 
 void Smiglo::Draw()
 {

@@ -1,23 +1,17 @@
 #include "Scene.h"
 
-
 Scene::Scene()
 {
 }
-
 
 Scene::~Scene()
 {
 }
 
-
 void Scene::RenderScene()
 {
-	//Coordinate coordinate = new Coordinate(false); <- nie dzia³a, nie wiem dlaczego 2 razy siê wywo³uje konstruktor i 
-									//za drugin razem przypisuje visible = true, nawet jak nie ma domyœlnego parametru
 	Coordinate coordinate(true);		
 	coordinate.Draw();
-
 
 	glScaled(0.5, 0.5, 0.5);
 	glPushMatrix();
@@ -26,7 +20,6 @@ void Scene::RenderScene()
 	glTranslated(75, 100, 0);
 	nozki.Draw(40, 3, 40,-15);   // parametry to wysokoœæ , promieñ i d³ugoœæ nó¿ek i kat ( gdy damy za du¿y k¹t to utracimy 
 	glPopMatrix();				// po³¹czenie pomiêdzy wygiêtym walcem a tym ale i tak powinnien on byæ ma³y
-
 
 	glPushMatrix();
 	Nozki nozki2;
@@ -40,13 +33,13 @@ void Scene::RenderScene()
 
 
 	Smiglo smiglo;
-	Stozek stozekPodSmiglem;
+	Silnik stozekPodSmiglem;
 	Smiglo smiglo2;
-	Stozek stozekPodSmiglem2;
+	Silnik stozekPodSmiglem2;
 	Smiglo smiglo3;
-	Stozek stozekPodSmiglem3;
+	Silnik stozekPodSmiglem3;
 	Smiglo smiglo4;
-	Stozek stozekPodSmiglem4;
+	Silnik stozekPodSmiglem4;
 
 	Walec walecPodSmiglem;
 	Walec walecPodSmiglem2;
@@ -122,6 +115,4 @@ void Scene::RenderScene()
 	glRotatef(90, 0, 1, 0);
 	stozekPodSmiglem2.Draw(4, 6, 8, 8);
 	glPopMatrix();
-
-
 }

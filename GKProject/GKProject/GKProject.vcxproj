@@ -152,7 +152,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Smiglo.cpp" />
-    <ClCompile Include="Stozek.cpp" />
+    <ClCompile Include="Silnik.cpp" />
     <ClCompile Include="Szescian.cpp" />
     <ClCompile Include="Walec.cpp" />
     <ClCompile Include="WygietePoloczenie.cpp" />
@@ -164,7 +164,7 @@
     <ClInclude Include="RESOURCE.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Smiglo.h" />
-    <ClInclude Include="Stozek.h" />
+    <ClInclude Include="Silnik.h" />
     <ClInclude Include="Szescian.h" />
     <ClInclude Include="Walec.h" />
     <ClInclude Include="WygietePoloczenie.h" />
