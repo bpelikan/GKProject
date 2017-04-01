@@ -18,26 +18,23 @@ void Scene::RenderScene()
 	Coordinate coordinate(true);		
 	coordinate.Draw();
 
-	/*Szescian szescian;
-	szescian.Draw();*/
 
-	//Stozek stozek;
-	////stozek.Draw(10, 40, 15, 10);
-	//stozek.Draw();
-
-	/*Walec walec(10, 10, 5);
-	walec.Draw(5, 10);*/
-
-
-	/*GLfloat x, y, z;
-	GLfloat r = 9;
-	for (GLfloat i = 0; i < 180; i += 0.1f)
-	{
-		x = r*cos()	
-	}*/
+	glScaled(0.5, 0.5, 0.5);
+	glPushMatrix();
 	Nozki nozki;
+	glRotated(90, 0, 0, 1);
+	glTranslated(75, 100, 0);
 	nozki.Draw(40, 3, 40,-15);   // parametry to wysokoœæ , promieñ i d³ugoœæ nó¿ek i kat ( gdy damy za du¿y k¹t to utracimy 
-									// po³¹czenie pomiêdzy wygiêtym walcem a tym ale i tak powinnien on byæ ma³y
+	glPopMatrix();				// po³¹czenie pomiêdzy wygiêtym walcem a tym ale i tak powinnien on byæ ma³y
+
+
+	glPushMatrix();
+	Nozki nozki2;
+	glRotated(90, 0, 0, 1);
+	glTranslated(75, 100, 110);
+	nozki.Draw(40, 3, 40, 15);
+	glPopMatrix();
+
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 
@@ -57,14 +54,13 @@ void Scene::RenderScene()
 	Walec walecPodSmiglem4;
 
 
-	//glScaled(0.5, 0.5, 0.5);
 
-	//glPushMatrix();
-	//glTranslated(-12, 0, 0);
-	//glRotated(-45, 1, 0, 0);
-	//glRotated(-45, 0, 1, 0);
-	//walecPodSmiglem.Draw(5, 35);
-	//glPopMatrix();
+	glPushMatrix();
+	glTranslated(-12, 0, 0);
+	glRotated(-45, 1, 0, 0);
+	glRotated(-45, 0, 1, 0);
+	walecPodSmiglem.Draw(5, 35);
+	glPopMatrix();
 
 	glPushMatrix();
 	glTranslated(-12, 110, 0);
@@ -89,20 +85,19 @@ void Scene::RenderScene()
 	glPopMatrix();
 
 
-<<<<<<< HEAD
 	glPushMatrix();
 	smiglo.Draw();
 	smiglo.Draw();
 	glRotatef(90, 0, 1, 0);
 	stozekPodSmiglem.Draw(4, 6, 8, 8);
 	glPopMatrix();
-=======
-	//glPushMatrix();
-	//smiglo.Draw();
-	//glRotatef(90, 0, 1, 0);					// dalem komentarz zeby to smiglo nie zaslanialo nozek
-	//stozekPodSmiglem.Draw(4, 6, 8, 8);
-	//glPopMatrix();
->>>>>>> origin/master
+
+	glPushMatrix();
+	smiglo.Draw();
+	glRotatef(90, 0, 1, 0);					
+	stozekPodSmiglem.Draw(4, 6, 8, 8);
+	glPopMatrix();
+
 
 	
 
@@ -128,11 +123,5 @@ void Scene::RenderScene()
 	stozekPodSmiglem2.Draw(4, 6, 8, 8);
 	glPopMatrix();
 
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);	//Uzyskanie siatki
-	//Sfera sfera(0, 0, 0);
-	//glTranslatef(20, 30, 20);
-	//sfera.Draw(180, 180, 40, 1.0f, 1.0f, 0.6f);
-	//sfera.Draw(180, 180, -40, 1.0f, 1.0f, 0.6f);
-	//sfera.Draw(360, 360, 40, 1.0f, 1.0f, 0.4f);
 
 }

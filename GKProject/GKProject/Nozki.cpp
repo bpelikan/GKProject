@@ -1,31 +1,10 @@
 #include "Nozki.h"
 #include "Walec.h"
 #include "WygietePoloczenie.h"
-Nozki::Nozki()
-{
-	for(int i = 0; i < 3; i++) {
-		wspPoczatkowe[i] = 0;
-	}
-}
-
-Nozki::Nozki(GLfloat wsp[3])
-{
-	for (int i = 0; i < 3; i++) {
-		wspPoczatkowe[i] = wsp[i];
-	}
-}
-
-Nozki::Nozki(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)
-{
-	wspPoczatkowe[0] = wsp_X;
-	wspPoczatkowe[1] = wsp_Y;
-	wspPoczatkowe[2] = wsp_Z;
-}
 
 
-Nozki::~Nozki()
-{
-}
+
+
 
 
 void Nozki::Draw(GLfloat h, GLfloat r, GLfloat dl , int kat)
