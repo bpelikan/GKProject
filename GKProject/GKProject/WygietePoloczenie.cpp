@@ -10,7 +10,7 @@ WygietePoloczenie::~WygietePoloczenie()
 
 void WygietePoloczenie::Draw(GLfloat r)
 {
-	GLfloat PI = 3.1415;
+	GLfloat PI = 3.1415f;
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 	for (float kat = 0; kat <= 2 * PI; kat += PI / 40)

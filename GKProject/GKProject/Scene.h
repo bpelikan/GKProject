@@ -5,13 +5,14 @@
 #include <math.h>
 #include <gl\glu.h> 
 
-#include "Szescian.h"
 #include "Coordinate.h"
-#include "Silnik.h"
-#include "Walec.h"
-#include "Sfera.h"
-#include "Smiglo.h"
-#include "Nozki.h"
+#include "Dron.h"
+//#include "Szescian.h"
+//#include "Silnik.h"
+//#include "Walec.h"
+//#include "Sfera.h"
+//#include "Smiglo.h"
+//#include "Nozki.h"
 
 class Scene
 {
