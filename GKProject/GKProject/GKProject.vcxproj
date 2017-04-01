@@ -146,8 +146,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cialo.cpp" />
     <ClCompile Include="Coordinate.cpp" />
+    <ClCompile Include="Dron.cpp" />
     <ClCompile Include="Nozki.cpp" />
+    <ClCompile Include="Podwozie.cpp" />
     <ClCompile Include="Sfera.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -158,8 +161,11 @@
     <ClCompile Include="WygietePoloczenie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cialo.h" />
     <ClInclude Include="Coordinate.h" />
+    <ClInclude Include="Dron.h" />
     <ClInclude Include="Nozki.h" />
+    <ClInclude Include="Podwozie.h" />
     <ClInclude Include="Sfera.h" />
     <ClInclude Include="RESOURCE.h" />
     <ClInclude Include="Scene.h" />

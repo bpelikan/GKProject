@@ -29,7 +29,7 @@ void Sfera::Draw(GLfloat angleA, GLfloat angleB, GLfloat r, GLfloat scaleX, GLfl
 {
 	GLfloat x1, y1, z1;
 
-	glColor3f(0.0f, 0.0f, 1.0f);
+	//glColor3f(1.0f, 0.0f, 1.0f);
 	glScalef(scaleX, scaleY, scaleZ);
 	
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);

@@ -45,6 +45,15 @@
     <ClCompile Include="Silnik.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Dron.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Podwozie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cialo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESOURCE.h">
@@ -75,6 +84,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Silnik.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dron.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Podwozie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cialo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

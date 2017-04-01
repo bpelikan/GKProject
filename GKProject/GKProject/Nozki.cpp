@@ -2,7 +2,7 @@
 #include "Walec.h"
 #include "WygietePoloczenie.h"
 
-void Nozki::Draw(GLfloat h, GLfloat r, GLfloat dl , int kat)
+void Nozka::Draw(GLfloat h, GLfloat r, GLfloat dl , int kat)
 {
 	GLfloat PI = 3.1415;
 
