@@ -16,3 +16,4 @@ private:
 	GLfloat wspPoczatkowe[3];
 };
 
+

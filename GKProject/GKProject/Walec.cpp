@@ -1,6 +1,5 @@
 #include "Walec.h"
 
-
 Walec::Walec()
 {
 	for (int i = 0; i < 3; i++) {
@@ -22,13 +21,13 @@ Walec::Walec(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)
 	wspPoczatkowe[2] = wsp_Z;
 }
 
-
 Walec::~Walec()
 {
 }
 
 void Walec::Draw(GLfloat r, GLfloat h)
 {
+	//œciana walca
 	glColor3f(1.0f, 0.5f, 0.5f);
 	glBegin(GL_TRIANGLE_STRIP);
 	for (float i = 0; i <= 360; i += 0.1f)
@@ -43,7 +42,7 @@ void Walec::Draw(GLfloat r, GLfloat h)
 	}
 	glEnd();
 
-
+	//dolny okr¹g
 	glColor3f(0.0f, 1.0f, 1.0f);
 	glBegin(GL_TRIANGLE_FAN);
 	glVertex3fv(wspPoczatkowe);
@@ -55,6 +54,7 @@ void Walec::Draw(GLfloat r, GLfloat h)
 	}
 	glEnd();
 
+	//górny okr¹g
 	glColor3f(0.0f, 0.0f, 1.0f);
 	glBegin(GL_TRIANGLE_FAN);
 	glVertex3f(wspPoczatkowe[0], wspPoczatkowe[1], wspPoczatkowe[2] + h);

@@ -6,9 +6,6 @@
 
 class Nozki
 {
-
-private:
-
 public:
 	void Draw(GLfloat h, GLfloat r, GLfloat dl , int kat);
 };
