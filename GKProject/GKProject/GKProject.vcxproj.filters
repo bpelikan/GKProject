@@ -54,6 +54,9 @@
     <ClCompile Include="Cialo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Skrzydla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESOURCE.h">
@@ -93,6 +96,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cialo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Skrzydla.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
