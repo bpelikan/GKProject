@@ -14,12 +14,5 @@ void Scene::RenderScene()
 	coordinate.Draw();
 
 	Dron dron;
-
-
-	Bieznia bieznia;
-	bieznia.Rysuj(100,60);
-
 	dron.Draw();
-
-
 }
