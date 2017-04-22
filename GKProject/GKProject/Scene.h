@@ -7,6 +7,9 @@
 
 #include "Coordinate.h"
 #include "Dron.h"
+#include "Bieznia.h"
+#include "Lampa.h"
+#include "Drzewo.h"
 //#include "Szescian.h"
 //#include "Silnik.h"
 //#include "Walec.h"
