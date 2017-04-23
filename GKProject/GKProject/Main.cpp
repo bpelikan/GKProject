@@ -38,7 +38,7 @@
 #define BITMAP_ID 0x4D42		// identyfikator formatu BMP
 #define GL_PI 3.14
 
-///////////////////////////////////////////////////
+////////////////////////////////////////////////////
 static GLfloat xPos = 150.0f;		//wsp drona
 static GLfloat yPos = 150.0f;
 static GLfloat zPos = 100.0f;
@@ -48,7 +48,7 @@ static GLfloat przyblizenie = 1.0f;
 bool przyc = false;				//czy wcisniety jest lewy przycisk myszy
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
-///////////////////////////////////////////////////
+////////////////////////////////////////////////////
 
 // Color Palette handle
 HPALETTE hPalette = NULL;
