@@ -172,7 +172,7 @@ void SetupRC()
 	//GLfloat  ambientLight[] = { 0.3f, 0.3f, 0.3f, 1.0f };
 	//GLfloat  diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
 	//GLfloat  specular[] = { 1.0f, 1.0f, 1.0f, 1.0f};
-	//GLfloat	 lightPos[] = { 0.0f, 150.0f, 150.0f, 1.0f };
+	//GLfloat	 lightPos[] = { 0.0f, 170.0f, 170.0f, 1.0f };
 	//GLfloat  specref[] =  { 1.0f, 1.0f, 1.0f, 1.0f };
 
 

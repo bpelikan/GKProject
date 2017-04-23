@@ -57,6 +57,24 @@
     <ClCompile Include="Skrzydla.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bieznia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lampa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Drzewo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Trapez.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stadion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Krzew.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESOURCE.h">
@@ -99,6 +117,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Skrzydla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bieznia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lampa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Drzewo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Trapez.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Stadion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Krzew.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

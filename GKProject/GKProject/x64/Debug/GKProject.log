@@ -1,0 +1,100 @@
+﻿  WygietePoloczenie.cpp
+c:\users\megam\downloads\gkproject\gkproject\wygietepoloczenie.cpp(22): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\wygietepoloczenie.cpp(23): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+  Walec.cpp
+c:\users\megam\downloads\gkproject\gkproject\walec.cpp(37): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\walec.cpp(41): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\walec.cpp(53): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\walec.cpp(65): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+  Trapez.cpp
+  Szescian.cpp
+  Stadion.cpp
+c:\users\megam\downloads\gkproject\gkproject\stadion.h(12): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(21): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(22): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(32): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(33): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(40): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(41): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(53): warning C4244: "argument": konwersja z "int" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(53): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(54): warning C4244: "argument": konwersja z "int" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(54): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(62): warning C4244: "argument": konwersja z "int" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(62): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(63): warning C4244: "argument": konwersja z "int" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\stadion.cpp(63): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+  Silnik.cpp
+c:\users\megam\downloads\gkproject\gkproject\silnik.cpp(38): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\silnik.cpp(49): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\silnik.cpp(53): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\silnik.cpp(64): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\silnik.cpp(68): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\silnik.cpp(79): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\silnik.cpp(83): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\silnik.cpp(95): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+  Smiglo.cpp
+c:\users\megam\downloads\gkproject\gkproject\smiglo.cpp(23): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\smiglo.cpp(31): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\smiglo.cpp(32): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\smiglo.cpp(43): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\smiglo.cpp(44): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\smiglo.cpp(58): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\smiglo.cpp(59): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\smiglo.cpp(71): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\smiglo.cpp(72): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+  Skrzydla.cpp
+  Scene.cpp
+c:\users\megam\downloads\gkproject\gkproject\krzew.h(13): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\bieznia.h(15): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\stadion.h(12): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\scene.cpp(17): warning C4305: "argument": obcięcie z "double" do "GLfloat"
+  Main.cpp
+c:\users\megam\downloads\gkproject\gkproject\krzew.h(13): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\bieznia.h(15): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\stadion.h(12): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\main.cpp(268): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\megam\downloads\gkproject\gkproject\main.cpp(502): warning C4244: "return": konwersja z "WPARAM" do "int", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\main.cpp(671): warning C4244: "=": konwersja z "int" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\main.cpp(672): warning C4244: "=": konwersja z "int" do "GLfloat", możliwa utrata danych
+  Sfera.cpp
+c:\users\megam\downloads\gkproject\gkproject\sfera.cpp(45): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\sfera.cpp(49): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\sfera.cpp(53): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\sfera.cpp(57): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\sfera.cpp(30): warning C4101: "y1": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\megam\downloads\gkproject\gkproject\sfera.cpp(30): warning C4101: "x1": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\megam\downloads\gkproject\gkproject\sfera.cpp(30): warning C4101: "z1": lokalna zmienna, do której nie istnieje odwołanie
+  Podwozie.cpp
+  Nozki.cpp
+c:\users\megam\downloads\gkproject\gkproject\nozki.cpp(7): warning C4305: "inicjowanie": obcięcie z "double" do "GLfloat"
+  Lampa.cpp
+  Krzew.cpp
+c:\users\megam\downloads\gkproject\gkproject\krzew.h(13): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\krzew.cpp(23): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\krzew.cpp(25): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+  Drzewo.cpp
+c:\users\megam\downloads\gkproject\gkproject\drzewo.cpp(17): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\drzewo.cpp(24): warning C4244: "argument": konwersja z "int" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\drzewo.cpp(26): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+  Dron.cpp
+c:\users\megam\downloads\gkproject\gkproject\dron.cpp(41): warning C4305: "argument": obcięcie z "double" do "GLfloat"
+  Coordinate.cpp
+  Cialo.cpp
+  Bieznia.cpp
+c:\users\megam\downloads\gkproject\gkproject\krzew.h(13): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\bieznia.h(15): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(19): warning C4305: "argument": obcięcie z "double" do "GLfloat"
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(22): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(23): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(30): warning C4244: "argument": konwersja z "double" do "int", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(31): warning C4244: "argument": konwersja z "double" do "int", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(35): warning C4244: "argument": konwersja z "double" do "int", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(46): warning C4244: "argument": konwersja z "double" do "int", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(55): warning C4305: "argument": obcięcie z "double" do "GLfloat"
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(62): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(63): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+c:\users\megam\downloads\gkproject\gkproject\bieznia.cpp(66): warning C4244: "+=": konwersja z "double" do "float", możliwa utrata danych
+  Generowanie kodu...
+  GKProject.vcxproj -> C:\Users\megam\Downloads\GKProject\x64\Debug\GKProject.exe
+  GKProject.vcxproj -> C:\Users\megam\Downloads\GKProject\x64\Debug\GKProject.pdb (Partial PDB)

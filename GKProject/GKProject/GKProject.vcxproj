@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -22,32 +22,32 @@
     <ProjectGuid>{7406B498-50D9-45C9-9994-B3160C63F2C5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>GKProject</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -146,9 +146,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bieznia.cpp" />
     <ClCompile Include="Cialo.cpp" />
     <ClCompile Include="Coordinate.cpp" />
     <ClCompile Include="Dron.cpp" />
+    <ClCompile Include="Drzewo.cpp" />
+    <ClCompile Include="Krzew.cpp" />
+    <ClCompile Include="Lampa.cpp" />
     <ClCompile Include="Nozki.cpp" />
     <ClCompile Include="Podwozie.cpp" />
     <ClCompile Include="Sfera.cpp" />
@@ -157,14 +161,20 @@
     <ClCompile Include="Skrzydla.cpp" />
     <ClCompile Include="Smiglo.cpp" />
     <ClCompile Include="Silnik.cpp" />
+    <ClCompile Include="Stadion.cpp" />
     <ClCompile Include="Szescian.cpp" />
+    <ClCompile Include="Trapez.cpp" />
     <ClCompile Include="Walec.cpp" />
     <ClCompile Include="WygietePoloczenie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bieznia.h" />
     <ClInclude Include="Cialo.h" />
     <ClInclude Include="Coordinate.h" />
     <ClInclude Include="Dron.h" />
+    <ClInclude Include="Drzewo.h" />
+    <ClInclude Include="Krzew.h" />
+    <ClInclude Include="Lampa.h" />
     <ClInclude Include="Nozki.h" />
     <ClInclude Include="Podwozie.h" />
     <ClInclude Include="Sfera.h" />
@@ -173,7 +183,9 @@
     <ClInclude Include="Skrzydla.h" />
     <ClInclude Include="Smiglo.h" />
     <ClInclude Include="Silnik.h" />
+    <ClInclude Include="Stadion.h" />
     <ClInclude Include="Szescian.h" />
+    <ClInclude Include="Trapez.h" />
     <ClInclude Include="Walec.h" />
     <ClInclude Include="WygietePoloczenie.h" />
   </ItemGroup>
