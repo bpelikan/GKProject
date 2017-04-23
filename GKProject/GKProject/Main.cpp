@@ -38,6 +38,18 @@
 #define BITMAP_ID 0x4D42		// identyfikator formatu BMP
 #define GL_PI 3.14
 
+////////////////////////////////////////////////////
+static GLfloat xPos = 150.0f;		//wsp drona
+static GLfloat yPos = 150.0f;
+static GLfloat zPos = 100.0f;
+static GLfloat przes = 1.0f;	//,,szybkosc" przesuwania dronem
+static GLfloat temp = 0.3f;
+static GLfloat przyblizenie = 1.0f;
+bool przyc = false;				//czy wcisniety jest lewy przycisk myszy
+GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
+GLfloat ytemp = 0.0f;
+////////////////////////////////////////////////////
+
 // Color Palette handle
 HPALETTE hPalette = NULL;
 
@@ -172,7 +184,7 @@ void SetupRC()
 	//GLfloat  ambientLight[] = { 0.3f, 0.3f, 0.3f, 1.0f };
 	//GLfloat  diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
 	//GLfloat  specular[] = { 1.0f, 1.0f, 1.0f, 1.0f};
-	//GLfloat	 lightPos[] = { 0.0f, 150.0f, 150.0f, 1.0f };
+	//GLfloat	 lightPos[] = { 0.0f, 170.0f, 170.0f, 1.0f };
 	//GLfloat  specref[] =  { 1.0f, 1.0f, 1.0f, 1.0f };
 
 
@@ -299,7 +311,8 @@ void RenderScene(void)
 	//Sposób na odróŸnienie "przedniej" i "tylniej" œciany wielok¹ta:
 	glPolygonMode(GL_BACK, GL_LINE);
 
-	Scene scene;
+	glScaled(przyblizenie, przyblizenie, przyblizenie);
+	Scene scene(xPos, yPos, zPos, przyblizenie);
 	scene.RenderScene();
 
 
@@ -656,22 +669,133 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		// Key press, check for arrow keys to do cube rotation.
 	case WM_KEYDOWN:
 	{
-		if (wParam == VK_UP)
-			xRot -= 5.0f;
+		/*if (wParam == VK_UP)
+		xRot -= 5.0f;
 
 		if (wParam == VK_DOWN)
-			xRot += 5.0f;
+		xRot += 5.0f;
 
 		if (wParam == VK_LEFT)
-			yRot -= 5.0f;
+		yRot -= 5.0f;
 
 		if (wParam == VK_RIGHT)
-			yRot += 5.0f;
+		yRot += 5.0f;*/
+
+		przes = 4.0f;
+
+		if (wParam == 'd' || wParam == 'D') //(wParam == 'b' || wParam == 'B')
+		{
+			xPos += przes;
+		}
+
+		if (wParam == 'w' || wParam == 'W') //(wParam == 'n' || wParam == 'N')
+		{
+			yPos += przes;
+		}
+
+		if (wParam == 'e' || wParam == 'E') //(wParam == 'm' || wParam == 'M')
+		{
+			zPos += przes;
+		}
+
+		if (wParam == 'a' || wParam == 'A') //(wParam == 'j' || wParam == 'J')
+		{
+			xPos -= przes;
+		}
+
+		if (wParam == 's' || wParam == 'S') //(wParam == 'k' || wParam == 'K')
+		{
+			yPos -= przes;
+		}
+
+		if (wParam == 'q' || wParam == 'Q') //(wParam == 'l' || wParam == 'L')
+		{
+			zPos -= przes;
+		}
+
+		/*if (wParam == 'o' || wParam == 'O')
+		{
+		przyblizenie -= 0.1f;
+		}
+
+		if (wParam == 'p' || wParam == 'P')
+		{
+		przyblizenie += 0.1f;
+		}*/
+
+		if (wParam == WM_MOUSEWHEEL)
+		{
+			przyblizenie += 0.1f;
+		}
+
 
 		xRot = (const int)xRot % 360;
 		yRot = (const int)yRot % 360;
 
 		InvalidateRect(hWnd, NULL, FALSE);
+	}
+	break;
+
+	case WM_MOUSEWHEEL:
+	{
+		if (GET_WHEEL_DELTA_WPARAM(wParam) > 0)
+		{
+			przyblizenie += 0.1f;
+		}
+		else
+		{
+			przyblizenie -= 0.1f;
+		}
+
+		InvalidateRect(hWnd, NULL, FALSE);
+	}
+	break;
+
+	case WM_LBUTTONDOWN:
+	{
+		przyc = true;
+		xtemp = LOWORD(lParam);
+		ytemp = HIWORD(lParam);
+	}
+	break;
+
+	case WM_LBUTTONUP:
+	{
+		przyc = false;
+	}
+	break;
+
+	case WM_MOUSEMOVE:
+	{
+		if (przyc)
+		{
+			GLfloat skala = 0.1f;
+
+			/*if ((HIWORD(lParam) - ytemp) >= 0)
+			{
+			xRot += skala;
+			}
+			else
+			{
+			xRot -= skala;
+			}
+
+			if ((LOWORD(lParam) - xtemp) >= 0)
+			{
+			yRot += skala;
+			}
+			else
+			{
+			yRot -= skala;
+			}*/
+
+			xRot += (HIWORD(lParam) - ytemp)*skala;
+			yRot += (LOWORD(lParam) - xtemp)*skala;
+			xtemp = LOWORD(lParam);
+			ytemp = HIWORD(lParam);
+
+			InvalidateRect(hWnd, NULL, FALSE);
+		}
 	}
 	break;
 

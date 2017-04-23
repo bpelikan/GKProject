@@ -2,16 +2,9 @@
 #include "Walec.h"
 #include "WygietePoloczenie.h"
 
-
-
-
-
-
-void Nozki::Draw(GLfloat h, GLfloat r, GLfloat dl , int kat)
+void Nozka::Draw(GLfloat h, GLfloat r, GLfloat dl , int kat)
 {
 	GLfloat PI = 3.1415;
-
-
 
 	WygietePoloczenie wyg1;
 	glColor3f(1.0f, 0.5f, 0.5f);
@@ -28,8 +21,6 @@ void Nozki::Draw(GLfloat h, GLfloat r, GLfloat dl , int kat)
 	Walec walecPionowy;
 	Walec walecPoziomy;
 	Walec walecPionowy2;
-
-
 
 	glPushMatrix();
 	glRotated(90, 1, 0, 0);
@@ -51,8 +42,6 @@ void Nozki::Draw(GLfloat h, GLfloat r, GLfloat dl , int kat)
 	glTranslated(0 ,r, -1);
 	walecPoziomy.Draw(r, dl+2);
 	glPopMatrix();
-
-
 }
 
 

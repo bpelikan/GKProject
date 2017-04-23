@@ -1,6 +1,5 @@
 #include "Sfera.h"
 
-
 Sfera::Sfera()
 {
 	for (int i = 0; i < 3; i++) {
@@ -22,34 +21,25 @@ Sfera::Sfera(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)
 	wspPoczatkowe[2] = wsp_Z;
 }
 
-
 Sfera::~Sfera()
 {
 }
-
 
 void Sfera::Draw(GLfloat angleA, GLfloat angleB, GLfloat r, GLfloat scaleX, GLfloat scaleY, GLfloat scaleZ, GLfloat dens)
 {
 	GLfloat x1, y1, z1;
 
-	/*x = wspPoczatkowe[0] + r * cos(angleA) * sin(angleB);
-	y = wspPoczatkowe[1] + r * cos(angleB);
-	z = wspPoczatkowe[2] + sin(angleA) * sin(angleB);*/
-	//glTranslatef(20, 30, 20);			<-dlaczego tylko 1 po³ówka siê przesuwa?
-
-	glColor3f(0.0f, 0.0f, 1.0f);
-	
+	//glColor3f(1.0f, 0.0f, 1.0f);
 	glScalef(scaleX, scaleY, scaleZ);
 	
-
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	glBegin(GL_QUADS);
 	
 	for (GLfloat i = 0; i < angleA; i += dens)
 	{
 		for (GLfloat j = 0; j < angleB; j += dens)
-		{
-
+		{	
+			//4 punkty tworz¹ce kwadrat/prostok¹t
 			glVertex3f(r * cos(i*3.14f / 180.0f) * sin(j*3.14f / 180.0f),
 				r * cos(j*3.14f / 180.0f),
 				r * sin(i*3.14f / 180.0f) * sin(j*3.14f / 180.0f));

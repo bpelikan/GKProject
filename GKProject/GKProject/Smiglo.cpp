@@ -1,7 +1,5 @@
 #include "Smiglo.h"
 
-
-
 Smiglo::Smiglo()
 {
 	for (int i = 0; i < 3; i++) {
@@ -20,13 +18,11 @@ Smiglo::~Smiglo()
 {
 }
 
-
-
 void Smiglo::Draw()
 {
 	float PI = 3.1415;
 	int j = 30;
-	glColor3d(1, 0, 1);
+	glColor3b(73, 73, 73);
 	for (int i = 0; i < 27; i = i + 10)
 	{
 		glBegin(GL_TRIANGLE_STRIP);
@@ -51,7 +47,7 @@ void Smiglo::Draw()
 		j = j - 5;
 	}
 
-	glColor3f(0, 1, 0);
+	glColor3b(50, 50, 50);
 
 	j = 30;
 	for (int i = 0; i > -27 / 5; i = i - 4)

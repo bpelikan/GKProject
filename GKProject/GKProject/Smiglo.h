@@ -14,6 +14,5 @@ private:
 	GLfloat wspPoczatkowe[3];
 public:
 	void Draw();
-
 };
 

@@ -4,11 +4,8 @@
 #include <gl\gl.h>              // OpenGL
 #include <math.h>
 
-class Nozki
+class Nozka
 {
-
-private:
-
 public:
 	void Draw(GLfloat h, GLfloat r, GLfloat dl , int kat);
 };

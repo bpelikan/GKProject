@@ -16,4 +16,3 @@ private:
 public:
 	void Draw(GLfloat r, GLfloat h);
 };
-

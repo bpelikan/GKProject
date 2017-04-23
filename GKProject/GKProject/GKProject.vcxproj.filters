@@ -27,9 +27,6 @@
     <ClCompile Include="Coordinate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Stozek.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Walec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -43,6 +40,39 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WygietePoloczenie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Silnik.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dron.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Podwozie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cialo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Skrzydla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bieznia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lampa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Drzewo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Trapez.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stadion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Krzew.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,9 +89,6 @@
     <ClInclude Include="Coordinate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Stozek.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Walec.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,6 +102,39 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WygietePoloczenie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Silnik.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dron.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Podwozie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cialo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Skrzydla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bieznia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lampa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Drzewo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Trapez.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Stadion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Krzew.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

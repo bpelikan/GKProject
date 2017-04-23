@@ -1,127 +1,51 @@
 #include "Scene.h"
 
+GLfloat Scene::wsp_X = 10;
+GLfloat Scene::wsp_Y = 0;
+GLfloat Scene::wsp_Z = 0;
+GLfloat Scene::prop = 0.3f;
+GLfloat Scene::temp = 40;
 
 Scene::Scene()
 {
 }
 
+Scene::Scene(GLfloat wspX, GLfloat wspY, GLfloat wspZ, GLfloat tp)
+{
+	wsp_X = wspX;
+	wsp_Y = wspY;
+	wsp_Z = wspZ;
+	temp = tp;
+}
 
 Scene::~Scene()
 {
 }
 
-
 void Scene::RenderScene()
 {
-	//Coordinate coordinate = new Coordinate(false); <- nie dzia³a, nie wiem dlaczego 2 razy siê wywo³uje konstruktor i 
-									//za drugin razem przypisuje visible = true, nawet jak nie ma domyœlnego parametru
+	gluLookAt(4 + wsp_X*prop, 4 + wsp_Y*prop, 4 + wsp_Z*prop,
+		wsp_X*prop, wsp_Y*prop, wsp_Z*prop,
+		0, 0, 1);
+
 	Coordinate coordinate(true);		
 	coordinate.Draw();
-
-
-	glScaled(0.5, 0.5, 0.5);
-	glPushMatrix();
-	Nozki nozki;
-	glRotated(90, 0, 0, 1);
-	glTranslated(75, 100, 0);
-	nozki.Draw(40, 3, 40,-15);   // parametry to wysokoœæ , promieñ i d³ugoœæ nó¿ek i kat ( gdy damy za du¿y k¹t to utracimy 
-	glPopMatrix();				// po³¹czenie pomiêdzy wygiêtym walcem a tym ale i tak powinnien on byæ ma³y
-
-
-	glPushMatrix();
-	Nozki nozki2;
-	glRotated(90, 0, 0, 1);
-	glTranslated(75, 100, 110);
-	nozki.Draw(40, 3, 40, 15);
-	glPopMatrix();
-
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
-
-
-	Smiglo smiglo;
-	Stozek stozekPodSmiglem;
-	Smiglo smiglo2;
-	Stozek stozekPodSmiglem2;
-	Smiglo smiglo3;
-	Stozek stozekPodSmiglem3;
-	Smiglo smiglo4;
-	Stozek stozekPodSmiglem4;
-
-	Walec walecPodSmiglem;
-	Walec walecPodSmiglem2;
-	Walec walecPodSmiglem3;
-	Walec walecPodSmiglem4;
-
-
-
-	glPushMatrix();
-	glTranslated(-12, 0, 0);
-	glRotated(-45, 1, 0, 0);
-	glRotated(-45, 0, 1, 0);
-	walecPodSmiglem.Draw(5, 35);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslated(-12, 110, 0);
-	glRotated(45, 1, 0, 0);
-	glRotated(-45, 0, 1, 0);
-	walecPodSmiglem.Draw(5, 35);
-	glPopMatrix();
-
-
-	glPushMatrix();
-	glTranslated(-12, 110, 110);
-	glRotated(135, 1, 0, 0);
-	glRotated(-45, 0, 1, 0);
-	walecPodSmiglem.Draw(5, 35);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslated(-12, 0, 110);
-	glRotated(-135, 1, 0, 0);
-	glRotated(-45, 0, 1, 0);
-	walecPodSmiglem.Draw(5, 35);
-	glPopMatrix();
-
-
-	glPushMatrix();
-	smiglo.Draw();
-	smiglo.Draw();
-	glRotatef(90, 0, 1, 0);
-	stozekPodSmiglem.Draw(4, 6, 8, 8);
-	glPopMatrix();
-
-	glPushMatrix();
-	smiglo.Draw();
-	glRotatef(90, 0, 1, 0);					
-	stozekPodSmiglem.Draw(4, 6, 8, 8);
-	glPopMatrix();
-
-
 	
 
 	glPushMatrix();
-	glTranslated(0, 110, 0);
-	smiglo2.Draw();
-	glRotatef(90, 0, 1, 0);
-	stozekPodSmiglem2.Draw(4, 6, 8, 8);
+	glScaled(prop, prop, prop);
+	glTranslated(wsp_X, wsp_Y, wsp_Z);
+	Dron dron;
+	dron.Draw();
 	glPopMatrix();
 
+	
+	Stadion stadion;
+	stadion.Rysuj();
 
-	glPushMatrix();
-	glTranslated(0, 110, 110);
-	smiglo2.Draw();
-	glRotatef(90, 0, 1, 0);
-	stozekPodSmiglem2.Draw(4, 6, 8, 8);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslated(0, 0, 110);
-	smiglo2.Draw();
-	glRotatef(90, 0, 1, 0);
-	stozekPodSmiglem2.Draw(4, 6, 8, 8);
-	glPopMatrix();
+	Bieznia bieznia;
+	bieznia.Rysuj(100, 60);
 
 
 }

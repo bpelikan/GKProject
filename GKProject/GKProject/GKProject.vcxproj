@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -28,13 +28,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -47,7 +47,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -146,26 +146,46 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bieznia.cpp" />
+    <ClCompile Include="Cialo.cpp" />
     <ClCompile Include="Coordinate.cpp" />
+    <ClCompile Include="Dron.cpp" />
+    <ClCompile Include="Drzewo.cpp" />
+    <ClCompile Include="Krzew.cpp" />
+    <ClCompile Include="Lampa.cpp" />
     <ClCompile Include="Nozki.cpp" />
+    <ClCompile Include="Podwozie.cpp" />
     <ClCompile Include="Sfera.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Skrzydla.cpp" />
     <ClCompile Include="Smiglo.cpp" />
-    <ClCompile Include="Stozek.cpp" />
+    <ClCompile Include="Silnik.cpp" />
+    <ClCompile Include="Stadion.cpp" />
     <ClCompile Include="Szescian.cpp" />
+    <ClCompile Include="Trapez.cpp" />
     <ClCompile Include="Walec.cpp" />
     <ClCompile Include="WygietePoloczenie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bieznia.h" />
+    <ClInclude Include="Cialo.h" />
     <ClInclude Include="Coordinate.h" />
+    <ClInclude Include="Dron.h" />
+    <ClInclude Include="Drzewo.h" />
+    <ClInclude Include="Krzew.h" />
+    <ClInclude Include="Lampa.h" />
     <ClInclude Include="Nozki.h" />
+    <ClInclude Include="Podwozie.h" />
     <ClInclude Include="Sfera.h" />
     <ClInclude Include="RESOURCE.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Skrzydla.h" />
     <ClInclude Include="Smiglo.h" />
-    <ClInclude Include="Stozek.h" />
+    <ClInclude Include="Silnik.h" />
+    <ClInclude Include="Stadion.h" />
     <ClInclude Include="Szescian.h" />
+    <ClInclude Include="Trapez.h" />
     <ClInclude Include="Walec.h" />
     <ClInclude Include="WygietePoloczenie.h" />
   </ItemGroup>
