@@ -22,7 +22,14 @@ class Scene
 {
 public:
 	Scene();
+	Scene(GLfloat wspX, GLfloat wspY, GLfloat wspZ, GLfloat tp);
 	~Scene();
 	void RenderScene();
+private:
+	static GLfloat wsp_X;
+	static GLfloat wsp_Y;
+	static GLfloat wsp_Z;
+	static GLfloat prop;
+	static GLfloat temp;
 };
 

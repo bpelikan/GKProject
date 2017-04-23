@@ -36,10 +36,9 @@ Dron::~Dron()
 
 void Dron::Draw()
 {
-	glRotated(-90, 0, 1, 0);
-	glTranslated(20, 70, 0);
-	glScalef(0.2, 0.2, 0.2);
 
+	glRotated(-90, 0, 1, 0);
+	glScalef(0.2, 0.2, 0.2);
 
 	Podwozie podwozie;
 	podwozie.Draw();
