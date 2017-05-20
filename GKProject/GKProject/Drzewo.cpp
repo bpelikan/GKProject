@@ -13,6 +13,31 @@ Drzewo::~Drzewo()
 
 void Drzewo::Rysuj(int x ,int y, int z)
 {
+
+	BITMAPINFOHEADER    bitmapInfoHeader;   // nag³ówek obrazu
+	unsigned char*      bitmapData;         // dane tekstury
+	unsigned int        texture[2];         // obiekt tekstury
+
+	glGenTextures(2, &texture[0]);                  // tworzy obiekt tekstury
+
+	tekstura Teksture;
+
+	bitmapData = Teksture.LoadBitmapFile("tekst3.bmp", &bitmapInfoHeader);
+	glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
+	// tworzy obraz tekstury
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
+		bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
+
+	if (bitmapData)
+		free(bitmapData);
+
+
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	float PI = 3.1415;
 	glPushMatrix();

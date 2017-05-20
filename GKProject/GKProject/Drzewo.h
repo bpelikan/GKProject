@@ -4,6 +4,7 @@
 #include <gl\gl.h>              // OpenGL
 #include "Walec.h"
 #include "Trapez.h"
+#include "tekstura.h"
 class Drzewo
 {
 public:

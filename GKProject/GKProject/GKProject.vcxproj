@@ -101,7 +101,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -163,6 +163,7 @@
     <ClCompile Include="Silnik.cpp" />
     <ClCompile Include="Stadion.cpp" />
     <ClCompile Include="Szescian.cpp" />
+    <ClCompile Include="tekstura.cpp" />
     <ClCompile Include="Trapez.cpp" />
     <ClCompile Include="Walec.cpp" />
     <ClCompile Include="WygietePoloczenie.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Silnik.h" />
     <ClInclude Include="Stadion.h" />
     <ClInclude Include="Szescian.h" />
+    <ClInclude Include="tekstura.h" />
     <ClInclude Include="Trapez.h" />
     <ClInclude Include="Walec.h" />
     <ClInclude Include="WygietePoloczenie.h" />

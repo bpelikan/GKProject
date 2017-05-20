@@ -11,6 +11,8 @@
 #include "Lampa.h"
 #include "Drzewo.h"
 #include "Stadion.h"
+#include <stdio.h>
+
 //#include "Szescian.h"
 //#include "Silnik.h"
 //#include "Walec.h"
@@ -24,6 +26,8 @@ public:
 	Scene();
 	Scene(GLfloat wspX, GLfloat wspY, GLfloat wspZ, GLfloat tp);
 	~Scene();
+public:
+	//unsigned char *LoadBitmapFile(char *filename, BITMAPINFOHEADER *bitmapInfoHeader);
 	void RenderScene();
 private:
 	static GLfloat wsp_X;
