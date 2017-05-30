@@ -11,7 +11,7 @@ Bieznia::~Bieznia()
 }
 void Bieznia::Rysuj(int R , int r)
 {
-	BITMAPINFOHEADER    bitmapInfoHeader;   // nag³ówek obrazu
+	/*BITMAPINFOHEADER    bitmapInfoHeader;   // nag³ówek obrazu
 	unsigned char*      bitmapData;         // dane tekstury
 	unsigned int        texture[4];         // obiekt tekstury
 
@@ -36,7 +36,7 @@ void Bieznia::Rysuj(int R , int r)
 		free(bitmapData);
 
 	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-
+	*/
 
 	
 	Lampa lampa;
@@ -83,34 +83,34 @@ void Bieznia::Rysuj(int R , int r)
 	float wysokosc = 0.0f;
 
 
-	glDisable(GL_TEXTURE_1D);
-	glEnable(GL_TEXTURE_2D);
+//	glDisable(GL_TEXTURE_1D);
+	//glEnable(GL_TEXTURE_2D);
 	for (int i = r; i >0; i -=5)
 	{
 		int ii = 0;
 		int jj = 0;
 		glBegin(GL_TRIANGLE_STRIP);
 
-		for (float kat = 0.0; kat < 2 * PI; kat += PI / 20)
+		for (float kat = 0.0; kat < 2* PI; kat += PI / 20)
 		{
 			
-			glTexCoord2f(ii, jj);
+		//	glTexCoord2f(ii, jj);
 
 			glVertex3f(i*sin(kat), i*cos(kat), wysokosc);
 
-			jj++;
+		/*	jj++;
 			if (jj == 2)
 				jj = 0;
 
 			glTexCoord2f(ii, jj);
-
+*/
 			glVertex3f((i - 5)*sin(kat), (i - 5)*cos(kat), wysokosc + log2(i / 5));
 
-			ii++;
+		/*	ii++;
 			if (ii == 2)
 				ii = 0;
 
-
+		*/
 
 		}
 		wysokosc += log2(i/5);

@@ -103,7 +103,6 @@ void Stadion::Rysuj()
 
 		int jj = 0;
 		int ii = 0;
-		glColor3ub(138, 164, 183);
 		glBegin(GL_TRIANGLE_STRIP);
 	
 		for (float kat = 0.0; kat < 1.9 * PI; kat += PI / 20)

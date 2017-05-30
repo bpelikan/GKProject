@@ -29,7 +29,7 @@ void Scene::RenderScene()
 		0, 0, 1);
 
 	Coordinate coordinate(true);		
-	coordinate.Draw();
+	//coordinate.Draw();
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	
 

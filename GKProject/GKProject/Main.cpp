@@ -162,7 +162,7 @@ void ChangeSize(GLsizei w, GLsizei h)
 	if (w <= h)
 		glOrtho(-nRange, nRange, -nRange*h / w, nRange*h / w, -nRange, nRange);
 	else
-		glOrtho(-nRange*w / h, nRange*w / h, -nRange, nRange, -nRange, nRange);
+		glOrtho(-nRange*w / h, nRange*w / h, -nRange, nRange, -1000, 1000);
 
 	// Establish perspective: 
 	/*
@@ -701,6 +701,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		przyblizenie += 0.1f;
 		}*/
 
+	
 		if (wParam == WM_MOUSEWHEEL)
 		{
 			przyblizenie += 0.1f;
@@ -713,6 +714,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		InvalidateRect(hWnd, NULL, FALSE);
 	}
 	break;
+
 
 	case WM_MOUSEWHEEL:
 	{

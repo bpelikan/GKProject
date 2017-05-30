@@ -1,5 +1,4 @@
 #include "Dron.h"
-
 #include "Smiglo.h"
 #include "Silnik.h"
 #include "Walec.h"
@@ -49,10 +48,10 @@ void Dron::Draw()
 	Skrzydla skrzydla;
 	skrzydla.Draw();
 
-
+	
 	
 
-
+	
 	//////////////////////////////////////
 	///do usuniecia
 	//Nozka nozka;
