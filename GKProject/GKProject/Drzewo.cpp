@@ -17,6 +17,9 @@ void Drzewo::Rysuj(int x ,int y, int z)
 	
 
 
+	
+
+
 	float PI = 3.1415;
 	glPushMatrix();
 	glTranslated(x, y, z);
@@ -33,7 +36,11 @@ void Drzewo::Rysuj(int x ,int y, int z)
 		glPushMatrix();
 			glTranslated(0, 0, i);
 			glRotatef(kat, 0, 0, 1);
+			glEnable(GL_TEXTURE_2D);
+
 			trapez.Rysuj(10, 7, 4);
+
+			glDisable(GL_TEXTURE_2D);
 			glPopMatrix();
 
 		}
@@ -43,11 +50,20 @@ void Drzewo::Rysuj(int x ,int y, int z)
 		glPushMatrix();
 		glTranslated(0, 0, h);
 		glRotatef(kat, 0, 0, 1);
+		glEnable(GL_TEXTURE_2D);
+
 		glBegin(GL_TRIANGLES);
+		glTexCoord2f(0, 0);
 		glVertex3f(-2.5, 0, 0);
+		glTexCoord2f(0, 1);
 		glVertex3f(2.5, 0, 0);
+		glTexCoord2f(1, 1);
 		glVertex3f(0, 0, 4);
+
 		glEnd();
+
+		glDisable(GL_TEXTURE_2D);
+
 		glPopMatrix();
 	}
 	glPopMatrix();
