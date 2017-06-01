@@ -24,7 +24,7 @@ class Scene
 {
 public:
 	Scene();
-	Scene(GLfloat wspX, GLfloat wspY, GLfloat wspZ, GLfloat tp);
+	Scene(GLfloat wspX, GLfloat wspY, GLfloat wspZ, GLfloat tp, GLfloat rotX, GLfloat rotY);
 	~Scene();
 public:
 	//unsigned char *LoadBitmapFile(char *filename, BITMAPINFOHEADER *bitmapInfoHeader);
@@ -35,5 +35,7 @@ private:
 	static GLfloat wsp_Z;
 	static GLfloat prop;
 	static GLfloat temp;
+	static GLfloat dronRotX;
+	static GLfloat dronRotY;
 };
 

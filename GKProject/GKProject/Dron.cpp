@@ -38,6 +38,7 @@ void Dron::Draw()
 
 	glRotated(-90, 0, 1, 0);
 	glScalef(0.2, 0.2, 0.2);
+	glTranslated(25, -25, -25);	//do ustawienia œrodka przy obrocie dronem
 
 	Podwozie podwozie;
 	podwozie.Draw();

@@ -44,10 +44,13 @@ static GLfloat yPos = 150.0f;
 static GLfloat zPos = 100.0f;
 static GLfloat przes = 1.0f;	//,,szybkosc" przesuwania dronem
 static GLfloat temp = 0.3f;
-static GLfloat przyblizenie = 1.0f;
-bool przyc = false;				//czy wcisniety jest lewy przycisk myszy
+static GLfloat przyblizenie = 10.0f;
+int przyc = 0;				//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
+
+static GLfloat xDroneRot = 0.0f;	//do obrotu dronem
+static GLfloat yDroneRot = 0.0f;
 ////////////////////////////////////////////////////
 
 // Color Palette handle
@@ -312,7 +315,7 @@ void RenderScene(void)
 	glPolygonMode(GL_BACK, GL_LINE);
 
 	glScaled(przyblizenie, przyblizenie, przyblizenie);
-	Scene scene(xPos, yPos, zPos, przyblizenie);
+	Scene scene(xPos, yPos, zPos, przyblizenie, xDroneRot, yDroneRot);
 	scene.RenderScene();
 
 
@@ -733,7 +736,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 	case WM_LBUTTONDOWN:
 	{
-		przyc = true;
+		przyc = 1;
 		xtemp = LOWORD(lParam);
 		ytemp = HIWORD(lParam);
 	}
@@ -741,13 +744,27 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 	case WM_LBUTTONUP:
 	{
-		przyc = false;
+		przyc = 0;
+	}
+	break;
+
+	case WM_RBUTTONDOWN:
+	{
+		przyc = -1;
+		xtemp = LOWORD(lParam);
+		ytemp = HIWORD(lParam);
+	}
+	break;
+
+	case WM_RBUTTONUP:
+	{
+		przyc = 0;
 	}
 	break;
 
 	case WM_MOUSEMOVE:
 	{
-		if (przyc)
+		if (przyc==1)
 		{
 			GLfloat skala = 0.1f;
 
@@ -771,6 +788,17 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 			xRot += (HIWORD(lParam) - ytemp)*skala;
 			yRot += (LOWORD(lParam) - xtemp)*skala;
+			xtemp = LOWORD(lParam);
+			ytemp = HIWORD(lParam);
+
+			InvalidateRect(hWnd, NULL, FALSE);
+		}
+		else if(przyc == -1)
+		{
+			GLfloat skala = 0.1f;
+			//xDroneRot
+			xDroneRot += (HIWORD(lParam) - ytemp)*skala;
+			yDroneRot += (LOWORD(lParam) - xtemp)*skala;
 			xtemp = LOWORD(lParam);
 			ytemp = HIWORD(lParam);
 

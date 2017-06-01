@@ -5,17 +5,21 @@ GLfloat Scene::wsp_Y = 0;
 GLfloat Scene::wsp_Z = 0;
 GLfloat Scene::prop = 0.3f;
 GLfloat Scene::temp = 40;
+GLfloat Scene::dronRotX = 0;
+GLfloat Scene::dronRotY = 0;
 
 Scene::Scene()
 {
 }
 
-Scene::Scene(GLfloat wspX, GLfloat wspY, GLfloat wspZ, GLfloat tp)
+Scene::Scene(GLfloat wspX, GLfloat wspY, GLfloat wspZ, GLfloat tp, GLfloat rotX, GLfloat rotY)
 {
 	wsp_X = wspX;
 	wsp_Y = wspY;
 	wsp_Z = wspZ;
 	temp = tp;
+	dronRotX = rotX;
+	dronRotY = rotY;
 }
 
 Scene::~Scene()
@@ -34,8 +38,11 @@ void Scene::RenderScene()
 	
 
 	glPushMatrix();
+	
 	glScaled(prop, prop, prop);
 	glTranslated(wsp_X, wsp_Y, wsp_Z);
+	glRotatef(dronRotX, 1, 0, 0);
+	glRotatef(dronRotY, 0, 1, 0);
 	Dron dron;
 	dron.Draw();
 	glPopMatrix();

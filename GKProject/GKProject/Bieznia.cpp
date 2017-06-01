@@ -9,6 +9,7 @@ Bieznia::Bieznia()
 Bieznia::~Bieznia()
 {
 }
+
 void Bieznia::Rysuj(int R , int r)
 {
 	BITMAPINFOHEADER    bitmapInfoHeader;   // nag³ówek obrazu
