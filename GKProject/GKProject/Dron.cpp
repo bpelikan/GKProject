@@ -92,3 +92,15 @@ void Dron::Draw()
 	stozekPodSmiglem.Draw(4, 6, 8, 8);
 	glPopMatrix();*/
 }
+
+void Dron::ChangePosition(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)
+{
+	glTranslated(wsp_X, wsp_Y, wsp_Z);
+}
+
+void Dron::ChangeRotation(GLfloat rot_X, GLfloat rot_Y, GLfloat rot_Z)
+{
+	glRotated(rot_X, 1, 0, 0);
+	glRotated(rot_Y, 0, 1, 0);
+	glRotated(rot_Z, 0, 0, 1);
+}

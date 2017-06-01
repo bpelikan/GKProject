@@ -44,7 +44,8 @@ static GLfloat yPos = 150.0f;
 static GLfloat zPos = 100.0f;
 static GLfloat przes = 1.0f;	//,,szybkosc" przesuwania dronem
 static GLfloat temp = 0.3f;
-static GLfloat przyblizenie = 10.0f;
+static GLfloat prop = 0.3f;
+static GLfloat przyblizenie = 4.0f;
 int przyc = 0;				//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
@@ -315,8 +316,47 @@ void RenderScene(void)
 	glPolygonMode(GL_BACK, GL_LINE);
 
 	glScaled(przyblizenie, przyblizenie, przyblizenie);
-	Scene scene(xPos, yPos, zPos, przyblizenie, xDroneRot, yDroneRot);
-	scene.RenderScene();
+	/*Scene scene(xPos, yPos, zPos, przyblizenie, xDroneRot, yDroneRot);
+	scene.RenderScene();*/
+
+	///////////////////////////////////////////////////////////////////
+	//
+	//xPos += 2.0f * -sin(yDroneRot * 3.14f / 180.0f);
+	//yPos += 2.0f * cos(yDroneRot * 3.14f / 180.0f) * cos(xDroneRot * 3.14f / 180.0f);
+	//zPos += 2.0f * sin(xDroneRot * 3.14f / 180.0f);
+
+	gluLookAt(4 + xPos*prop, 4 + yPos*prop, 4 + zPos*prop,
+		xPos*prop, yPos*prop, zPos*prop,
+		0, 0, 1);
+
+	Coordinate coordinate(true);
+	//coordinate.Draw();
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+	
+
+	glPushMatrix();
+	glScaled(prop, prop, prop);
+	//glTranslated(xPos, yPos, zPos);
+	//glTranslated(xPos, yPos, zPos);
+	//glRotatef(xDroneRot, 1, 0, 0);
+	//glRotatef(yDroneRot, 0, 1, 0);
+	
+	
+	Dron dron;
+	dron.ChangePosition(xPos, yPos, zPos);
+	dron.ChangeRotation(xDroneRot, yDroneRot, 0);
+	dron.Draw();
+	glPopMatrix();
+
+	Stadion stadion;
+	stadion.Rysuj();
+
+	Bieznia bieznia;
+	bieznia.Rysuj(100, 60);
+	//
+	///////////////////////////////////////////////////////////////////
+
 
 
 

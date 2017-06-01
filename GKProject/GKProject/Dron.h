@@ -15,5 +15,7 @@ private:
 	GLfloat wspPoczatkowe[3];
 public:
 	void Draw();
+	void ChangePosition(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z);
+	void ChangeRotation(GLfloat rot_X, GLfloat rot_Y, GLfloat rot_Z);
 };
 
