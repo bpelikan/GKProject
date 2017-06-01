@@ -75,6 +75,9 @@
     <ClCompile Include="Krzew.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tekstura.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESOURCE.h">
@@ -135,6 +138,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Krzew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tekstura.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
