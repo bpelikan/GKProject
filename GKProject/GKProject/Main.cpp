@@ -51,6 +51,8 @@ int przyc = 0;				//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
 
+Dron dron;
+
 static GLfloat xDroneRot = 0.0f;	//do obrotu dronem
 static GLfloat yDroneRot = 0.0f;
 ////////////////////////////////////////////////////
@@ -344,7 +346,7 @@ void RenderScene(void)
 	//glRotatef(yDroneRot, 0, 1, 0);
 	
 	
-	Dron dron;
+	//Dron dron;
 	dron.ChangePosition(xPos, yPos, zPos);
 	dron.ChangeRotation(xDroneRot, yDroneRot, 0);
 	dron.Draw();
