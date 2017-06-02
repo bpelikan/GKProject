@@ -40,7 +40,7 @@ void Antena::Draw()
 	glRotatef(90, 0, 1, 0);
 	glColor3f(0,0,0);
 	//glTranslated(50, 25, 0);
-	podstawaAnteny.Draw(0.2f, wysokoscAnteny);
+	podstawaAnteny.Draw(0.4f, wysokoscAnteny);
 	glPopMatrix();
 
 	glPushMatrix();

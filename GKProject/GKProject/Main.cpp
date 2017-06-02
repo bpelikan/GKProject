@@ -46,7 +46,7 @@ static GLfloat przes = 2.0f;	//,,szybkosc" przesuwania dronem
 static GLfloat zoomValueInc = 0.4f;		//,,szybkosc" przyblizania
 static GLfloat temp = 0.3f;
 static GLfloat prop = 0.3f;
-static GLfloat przyblizenie = 20.0f;
+static GLfloat przyblizenie = 5.0f;
 static GLfloat rotateVal = 1;			//szybkosc obrotu smigiel
 static GLfloat rotateValInc = 1.0f;		//szybkosc zmiany predkosci smigiel
 int przyc = 0;				//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
@@ -57,6 +57,7 @@ Dron dron;
 
 static GLfloat xDroneRot = 0.0f;	//do obrotu dronem
 static GLfloat yDroneRot = 0.0f;
+static GLfloat zDroneRot = 0.0f;
 ////////////////////////////////////////////////////
 
 // Color Palette handle
@@ -69,7 +70,7 @@ static HINSTANCE hInstance;
 // Rotation amounts
 static GLfloat xRot = 0.0f;
 static GLfloat yRot = 0.0f;
-
+static GLfloat zRot = 0.0f;
 
 static GLsizei lastHeight;
 static GLsizei lastWidth;
@@ -311,7 +312,7 @@ void RenderScene(void)
 	glPushMatrix();
 	glRotatef(xRot, 1.0f, 0.0f, 0.0f);
 	glRotatef(yRot, 0.0f, 1.0f, 0.0f);
-
+	glRotatef(zRot, 0.0f, 0.0f, 1.0f);
 	/////////////////////////////////////////////////////////////////
 	// MIEJSCE NA KOD OPENGL DO TWORZENIA WLASNYCH SCEN:		   //
 	/////////////////////////////////////////////////////////////////
@@ -326,11 +327,11 @@ void RenderScene(void)
 
 	///////////////////////////////////////////////////////////////////
 	//
-	//xPos += 2.0f * -sin(yDroneRot * 3.14f / 180.0f);
-	//yPos += 2.0f * cos(yDroneRot * 3.14f / 180.0f) * cos(xDroneRot * 3.14f / 180.0f);
-	//zPos += 2.0f * sin(xDroneRot * 3.14f / 180.0f);
 
-	gluLookAt(4 + xPos*prop, 4 + yPos*prop, 4 + zPos*prop,
+	/*gluLookAt(4 + xPos*prop, 4 + yPos*prop, 4 + zPos*prop,
+		xPos*prop, yPos*prop, zPos*prop,
+		0, 0, 1);*/
+	gluLookAt(xPos*prop, 4 + yPos*prop, 4 + zPos*prop,
 		xPos*prop, yPos*prop, zPos*prop,
 		0, 0, 1);
 
@@ -338,7 +339,6 @@ void RenderScene(void)
 	//coordinate.Draw();
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-	
 
 	glPushMatrix();
 	glScaled(prop, prop, prop);
@@ -346,9 +346,7 @@ void RenderScene(void)
 	//glTranslated(xPos, yPos, zPos);
 	//glRotatef(xDroneRot, 1, 0, 0);
 	//glRotatef(yDroneRot, 0, 1, 0);
-	
-	
-	//Dron dron;
+		
 	dron.ChangePosition(xPos, yPos, zPos);
 	dron.ChangeRotation(xDroneRot, yDroneRot, 0);
 	dron.Draw();
@@ -748,17 +746,16 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			zPos -= przes;
 		}
 
-		if (wParam == 'o' || wParam == 'O')
+		if (wParam == 'o' || wParam == 'O')	//zwiekszanie obrotów silnikow
 		{
 			if (rotateVal + rotateValInc <= 84)
 			{
 				rotateVal += rotateValInc;
 			}
-
 			dron.SetRotate(rotateVal);
 		}
 
-		if (wParam == 'p' || wParam == 'P')
+		if (wParam == 'p' || wParam == 'P')//zmniejszanie obrotów silnikow
 		{
 			if (rotateVal - rotateValInc > 0)
 			{
@@ -770,6 +767,49 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			}
 			dron.SetRotate(rotateVal);
 		}
+
+		/*if (wParam == VK_UP)
+		xRot -= 5.0f;
+
+		if (wParam == VK_DOWN)
+		xRot += 5.0f;
+
+		if (wParam == VK_LEFT)
+		yRot -= 5.0f;
+
+		if (wParam == VK_RIGHT)
+		yRot += 5.0f;*/
+
+		if (wParam == 'u' || wParam == 'U') 
+		{
+			yRot -= 5.0f;
+		}
+
+		if (wParam == 'j' || wParam == 'J') 
+		{
+			yRot += 5.0f;
+		}
+
+		if (wParam == 'h' || wParam == 'H') 
+		{
+			xRot -= 5.0f;
+		}
+
+		if (wParam == 'k' || wParam == 'K') 
+		{
+			xRot += 5.0f;
+		}
+
+		if (wParam == 'y' || wParam == 'Y')
+		{
+			zRot -= 5.0f;
+		}
+
+		if (wParam == 'i' || wParam == 'I')
+		{
+			zRot += 5.0f;
+		}
+
 
 		/*if (wParam == 'o' || wParam == 'O')
 		{
@@ -871,17 +911,17 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 			InvalidateRect(hWnd, NULL, FALSE);
 		}
-		else if(przyc == -1)
-		{
-			GLfloat skala = 0.1f;
-			//xDroneRot
-			xDroneRot += (HIWORD(lParam) - ytemp)*skala;
-			yDroneRot += (LOWORD(lParam) - xtemp)*skala;
-			xtemp = LOWORD(lParam);
-			ytemp = HIWORD(lParam);
+		//else if(przyc == -1)	//srterowanie pochyleniem prawym przyciskiem myszy
+		//{
+		//	GLfloat skala = 0.1f;
+		//	//xDroneRot
+		//	xDroneRot += (HIWORD(lParam) - ytemp)*skala;
+		//	yDroneRot += (LOWORD(lParam) - xtemp)*skala;
+		//	xtemp = LOWORD(lParam);
+		//	ytemp = HIWORD(lParam);
 
-			InvalidateRect(hWnd, NULL, FALSE);
-		}
+		//	InvalidateRect(hWnd, NULL, FALSE);
+		//}
 		
 	}
 	break;
