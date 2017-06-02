@@ -3,6 +3,8 @@
 #include "Silnik.h"
 #include "Walec.h"
 
+GLfloat Skrzydla::rotateValue = 10;
+GLfloat Skrzydla::rotateValueInc = 0;
 
 Skrzydla::Skrzydla()
 {
@@ -20,6 +22,8 @@ void Skrzydla::Draw()
 	Stozek stozekPodSmiglem;
 	Walec walecPodSmiglem;
 
+	rotateValue += rotateValueInc;
+
 	//1 skrzydlo
 	glPushMatrix();
 	glTranslated(-12, 0, 0);
@@ -29,6 +33,7 @@ void Skrzydla::Draw()
 	glPopMatrix();
 
 	glPushMatrix();
+	glRotatef(rotateValue, 1, 0, 0);	//obrót smiglem
 	smiglo.Draw();
 	glRotatef(90, 0, 1, 0);
 	stozekPodSmiglem.Draw(4, 6, 8, 8);
@@ -45,6 +50,7 @@ void Skrzydla::Draw()
 
 	glPushMatrix();
 	glTranslated(0, 110, 0);
+	glRotatef(rotateValue, 1, 0, 0);	//obrót smiglem
 	smiglo.Draw();
 	glRotatef(90, 0, 1, 0);
 	stozekPodSmiglem.Draw(4, 6, 8, 8);
@@ -61,6 +67,7 @@ void Skrzydla::Draw()
 
 	glPushMatrix();
 	glTranslated(0, 110, 110);
+	glRotatef(rotateValue, 1, 0, 0);	//obrót smiglem
 	smiglo.Draw();
 	glRotatef(90, 0, 1, 0);
 	stozekPodSmiglem.Draw(4, 6, 8, 8);
@@ -77,8 +84,14 @@ void Skrzydla::Draw()
 
 	glPushMatrix();
 	glTranslated(0, 0, 110);
+	glRotatef(rotateValue, 1, 0, 0);	//obrót smiglem
 	smiglo.Draw();
 	glRotatef(90, 0, 1, 0);
 	stozekPodSmiglem.Draw(4, 6, 8, 8);
 	glPopMatrix();
+}
+
+void Skrzydla::SetRotate(GLfloat temp)
+{
+	rotateValueInc = temp;
 }

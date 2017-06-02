@@ -59,11 +59,7 @@ void Dron::Draw()
 
 	Skrzydla skrzydla;
 	skrzydla.Draw();
-
-	
-	
-	
-
+	//skrzydla.Rotate(10);
 	
 	//////////////////////////////////////
 	///do usuniecia
@@ -115,4 +111,10 @@ void Dron::ChangeRotation(GLfloat rot_X, GLfloat rot_Y, GLfloat rot_Z)
 	glRotated(rot_X, 1, 0, 0);
 	glRotated(rot_Y, 0, 1, 0);
 	glRotated(rot_Z, 0, 0, 1);
+}
+
+void Dron::SetRotate(GLfloat temp)
+{
+	Skrzydla skrzydla;
+	skrzydla.SetRotate(temp);
 }

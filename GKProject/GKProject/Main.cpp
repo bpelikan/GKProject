@@ -46,7 +46,9 @@ static GLfloat przes = 2.0f;	//,,szybkosc" przesuwania dronem
 static GLfloat zoomValueInc = 0.4f;		//,,szybkosc" przyblizania
 static GLfloat temp = 0.3f;
 static GLfloat prop = 0.3f;
-static GLfloat przyblizenie = 2.0f;
+static GLfloat przyblizenie = 20.0f;
+static GLfloat rotateVal = 1;			//szybkosc obrotu smigiel
+static GLfloat rotateValInc = 1.0f;		//szybkosc zmiany predkosci smigiel
 int przyc = 0;				//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
@@ -580,7 +582,6 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		if (wParam == 100)
 		{
 			//xPos += przes;
-
 			InvalidateRect(hWnd, NULL, true);
 		}
 		break;
@@ -747,6 +748,29 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			zPos -= przes;
 		}
 
+		if (wParam == 'o' || wParam == 'O')
+		{
+			if (rotateVal + rotateValInc <= 84)
+			{
+				rotateVal += rotateValInc;
+			}
+
+			dron.SetRotate(rotateVal);
+		}
+
+		if (wParam == 'p' || wParam == 'P')
+		{
+			if (rotateVal - rotateValInc > 0)
+			{
+				rotateVal -= rotateValInc;
+			}
+			else
+			{
+				rotateVal = 0;
+			}
+			dron.SetRotate(rotateVal);
+		}
+
 		/*if (wParam == 'o' || wParam == 'O')
 		{
 		przyblizenie -= 0.1f;
@@ -858,6 +882,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 			InvalidateRect(hWnd, NULL, FALSE);
 		}
+		
 	}
 	break;
 
