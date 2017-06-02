@@ -42,20 +42,20 @@
 static GLfloat xPos = 150.0f;		//wsp drona
 static GLfloat yPos = 150.0f;
 static GLfloat zPos = 100.0f;
-static GLfloat przes = 2.0f;	//,,szybkosc" przesuwania dronem
+static GLfloat przes = 2.0f;			//,,szybkosc" przesuwania dronem
 static GLfloat zoomValueInc = 0.4f;		//,,szybkosc" przyblizania
 static GLfloat temp = 0.3f;
 static GLfloat prop = 0.3f;
 static GLfloat przyblizenie = 5.0f;
 static GLfloat rotateVal = 1;			//szybkosc obrotu smigiel
 static GLfloat rotateValInc = 1.0f;		//szybkosc zmiany predkosci smigiel
-int przyc = 0;				//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
+int przyc = 0;							//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
 
 Dron dron;
 
-static GLfloat droneRotInc = 1.0f;
+static GLfloat droneRotInc = 2.0f;
 static GLfloat xDroneRot = 0.0f;	//do obrotu dronem
 static GLfloat yDroneRot = 0.0f;
 static GLfloat zDroneRot = 0.0f;
@@ -348,6 +348,10 @@ void RenderScene(void)
 	//glRotatef(xDroneRot, 1, 0, 0);
 	//glRotatef(yDroneRot, 0, 1, 0);
 		
+
+
+
+
 	dron.ChangePosition(xPos, yPos, zPos);
 	dron.ChangeRotation(xDroneRot, yDroneRot, 0);
 	dron.Draw();
@@ -927,17 +931,17 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 			InvalidateRect(hWnd, NULL, FALSE);
 		}
-		//else if(przyc == -1)	//srterowanie pochyleniem prawym przyciskiem myszy
-		//{
-		//	GLfloat skala = 0.1f;
-		//	//xDroneRot
-		//	xDroneRot += (HIWORD(lParam) - ytemp)*skala;
-		//	yDroneRot += (LOWORD(lParam) - xtemp)*skala;
-		//	xtemp = LOWORD(lParam);
-		//	ytemp = HIWORD(lParam);
+		else if(przyc == -1)	//srterowanie pochyleniem prawym przyciskiem myszy
+		{
+			GLfloat skala = 0.2f;
+			//xDroneRot
+			xDroneRot -= (HIWORD(lParam) - ytemp)*skala;
+			yDroneRot -= (LOWORD(lParam) - xtemp)*skala;
+			xtemp = LOWORD(lParam);
+			ytemp = HIWORD(lParam);
 
-		//	InvalidateRect(hWnd, NULL, FALSE);
-		//}
+			InvalidateRect(hWnd, NULL, FALSE);
+		}
 		
 	}
 	break;
