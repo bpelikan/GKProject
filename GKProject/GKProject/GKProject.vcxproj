@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Antena.cpp" />
     <ClCompile Include="Bieznia.cpp" />
     <ClCompile Include="Cialo.cpp" />
     <ClCompile Include="Coordinate.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="WygietePoloczenie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Antena.h" />
     <ClInclude Include="Bieznia.h" />
     <ClInclude Include="Cialo.h" />
     <ClInclude Include="Coordinate.h" />

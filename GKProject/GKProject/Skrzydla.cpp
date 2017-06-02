@@ -17,7 +17,7 @@ void Skrzydla::Draw()
 {
 
 	Smiglo smiglo;
-	Silnik stozekPodSmiglem;
+	Stozek stozekPodSmiglem;
 	Walec walecPodSmiglem;
 
 	//1 skrzydlo

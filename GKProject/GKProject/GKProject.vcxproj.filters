@@ -78,6 +78,9 @@
     <ClCompile Include="tekstura.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Antena.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESOURCE.h">
@@ -141,6 +144,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tekstura.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Antena.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

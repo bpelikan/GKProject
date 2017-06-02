@@ -4,13 +4,13 @@
 #include <gl\gl.h>              // OpenGL
 #include <math.h>
 
-class Silnik
+class Stozek
 {
 public:
-	Silnik();
-	Silnik(GLfloat wsp[3]);
-	Silnik(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z);
-	~Silnik();
+	Stozek();
+	Stozek(GLfloat wsp[3]);
+	Stozek(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z);
+	~Stozek();
 private:
 	GLfloat wspPoczatkowe[3];
 public:

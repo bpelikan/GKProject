@@ -6,6 +6,9 @@
 #include "Sfera.h"
 #include "Cialo.h"
 #include "Skrzydla.h"
+#include "Antena.h"
+#include "Coordinate.h"
+
 Dron::Dron()
 {
 	for (int i = 0; i < 3; i++) {
@@ -35,9 +38,17 @@ Dron::~Dron()
 
 void Dron::Draw()
 {
+	//Coordinate coordinate(true);
+	//coordinate.Draw();
+
+	
 
 	glRotated(-90, 0, 1, 0);
 	glScalef(0.2, 0.2, 0.2);
+
+	Antena antena;
+	antena.Draw();
+	
 	glTranslated(25, -25, -25);	//do ustawienia œrodka przy obrocie dronem
 
 	Podwozie podwozie;
@@ -49,6 +60,7 @@ void Dron::Draw()
 	Skrzydla skrzydla;
 	skrzydla.Draw();
 
+	
 	
 	
 

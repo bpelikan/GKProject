@@ -42,10 +42,11 @@
 static GLfloat xPos = 150.0f;		//wsp drona
 static GLfloat yPos = 150.0f;
 static GLfloat zPos = 100.0f;
-static GLfloat przes = 1.0f;	//,,szybkosc" przesuwania dronem
+static GLfloat przes = 2.0f;	//,,szybkosc" przesuwania dronem
+static GLfloat zoomValueInc = 3.0f;		//,,szybkosc" przyblizania
 static GLfloat temp = 0.3f;
 static GLfloat prop = 0.3f;
-static GLfloat przyblizenie = 4.0f;
+static GLfloat przyblizenie = 25.0f;
 int przyc = 0;				//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
@@ -348,12 +349,13 @@ void RenderScene(void)
 	dron.ChangeRotation(xDroneRot, yDroneRot, 0);
 	dron.Draw();
 	glPopMatrix();
-
+	
 	Stadion stadion;
 	stadion.Rysuj();
 
 	Bieznia bieznia;
 	bieznia.Rysuj(100, 60);
+	
 	//
 	///////////////////////////////////////////////////////////////////
 
@@ -745,10 +747,10 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		}*/
 
 	
-		if (wParam == WM_MOUSEWHEEL)
+		/*if (wParam == WM_MOUSEWHEEL)
 		{
 			przyblizenie += 0.1f;
-		}
+		}*/
 
 
 		xRot = (const int)xRot % 360;
@@ -761,13 +763,14 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 	case WM_MOUSEWHEEL:
 	{
+
 		if (GET_WHEEL_DELTA_WPARAM(wParam) > 0)
 		{
-			przyblizenie += 0.1f;
+			przyblizenie += zoomValueInc;
 		}
 		else
 		{
-			przyblizenie -= 0.1f;
+			przyblizenie -= zoomValueInc;
 		}
 
 		InvalidateRect(hWnd, NULL, FALSE);

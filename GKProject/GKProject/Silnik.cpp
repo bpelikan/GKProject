@@ -1,31 +1,31 @@
 #include "Silnik.h"
 
-Silnik::Silnik()
+Stozek::Stozek()
 {
 	for (int i = 0; i < 3; i++) {
 		wspPoczatkowe[i] = 0;
 	}
 }
 
-Silnik::Silnik(GLfloat wsp[3])
+Stozek::Stozek(GLfloat wsp[3])
 {
 	for (int i = 0; i < 3; i++) {
 		wspPoczatkowe[i] = wsp[i];
 	}
 }
 
-Silnik::Silnik(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)
+Stozek::Stozek(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)
 {
 	wspPoczatkowe[0] = wsp_X;
 	wspPoczatkowe[1] = wsp_Y;
 	wspPoczatkowe[2] = wsp_Z;
 }
 
-Silnik::~Silnik()
+Stozek::~Stozek()
 {
 }
 
-void Silnik::Draw(GLfloat rg, GLfloat rd, GLfloat h1, GLfloat h2)
+void Stozek::Draw(GLfloat rg, GLfloat rd, GLfloat h1, GLfloat h2)
 {
 	//wype³nienie dziury w górnym sto¿ku
 	glColor3f(0.0f, 0.0f, 1.0f);
