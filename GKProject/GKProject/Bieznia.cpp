@@ -12,77 +12,77 @@ Bieznia::~Bieznia()
 
 void Bieznia::Rysuj(int R , int r)
 {
-	BITMAPINFOHEADER    bitmapInfoHeader;   // nag³ówek obrazu
-	unsigned char*      bitmapData;         // dane tekstury
-	unsigned int        texture[5];         // obiekt tekstury
+	//BITMAPINFOHEADER    bitmapInfoHeader;   // nag³ówek obrazu
+	//unsigned char*      bitmapData;         // dane tekstury
+	//unsigned int        texture[5];         // obiekt tekstury
 
-	glGenTextures(2, &texture[0]);                  // tworzy obiekt tekstury
+	//glGenTextures(2, &texture[0]);                  // tworzy obiekt tekstury
 
-	tekstura Teksture;
+	//tekstura Teksture;
 
-	bitmapData = Teksture.LoadBitmapFile("trawa.bmp", &bitmapInfoHeader);
-	glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	//bitmapData = Teksture.LoadBitmapFile("trawa.bmp", &bitmapInfoHeader);
+	//glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
 
-	// tworzy obraz tekstury
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
-		bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
+	//// tworzy obraz tekstury
+	//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
+	//	bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
 
-	if (bitmapData)
-		free(bitmapData);
+	//if (bitmapData)
+	//	free(bitmapData);
 
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-
-
-
-
-	glGenTextures(2, &texture[2]);                  // tworzy obiekt tekstury
-
-
-	bitmapData = Teksture.LoadBitmapFile("bieznia3.bmp", &bitmapInfoHeader);
-	glBindTexture(GL_TEXTURE_2D, texture[2]);       // aktywuje obiekt tekstury
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-
-	// tworzy obraz tekstury
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
-		bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
-
-	if (bitmapData)
-		free(bitmapData);
-
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+	//glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 
 
 
 
-	glGenTextures(2, &texture[3]);                  // tworzy obiekt tekstury
+	//glGenTextures(2, &texture[2]);                  // tworzy obiekt tekstury
+
+
+	//bitmapData = Teksture.LoadBitmapFile("bieznia3.bmp", &bitmapInfoHeader);
+	//glBindTexture(GL_TEXTURE_2D, texture[2]);       // aktywuje obiekt tekstury
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
+	//// tworzy obraz tekstury
+	//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
+	//	bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
+
+	//if (bitmapData)
+	//	free(bitmapData);
+
+	//glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 
 
 
-	bitmapData = Teksture.LoadBitmapFile("drzewo.bmp", &bitmapInfoHeader);
-	glBindTexture(GL_TEXTURE_2D, texture[3]);       // aktywuje obiekt tekstury
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	//glGenTextures(2, &texture[3]);                  // tworzy obiekt tekstury
 
-	// tworzy obraz tekstury
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
-		bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
 
-	if (bitmapData)
-		free(bitmapData);
 
-	glBindTexture(GL_TEXTURE_2D, texture[2]);       // aktywuje obiekt tekstury
+	//bitmapData = Teksture.LoadBitmapFile("drzewo.bmp", &bitmapInfoHeader);
+	//glBindTexture(GL_TEXTURE_2D, texture[3]);       // aktywuje obiekt tekstury
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
+	//// tworzy obraz tekstury
+	//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
+	//	bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
+
+	//if (bitmapData)
+	//	free(bitmapData);
+
+	//glBindTexture(GL_TEXTURE_2D, texture[2]);       // aktywuje obiekt tekstury
 
 	Lampa lampa;
 	Drzewo drzewo;
@@ -127,7 +127,7 @@ void Bieznia::Rysuj(int R , int r)
 
 		glScaled(2, 2, 2);
 
-		glBindTexture(GL_TEXTURE_2D, texture[3]);       // aktywuje obiekt tekstury
+		//glBindTexture(GL_TEXTURE_2D, texture[3]);       // aktywuje obiekt tekstury
 		drzewo.Rysuj((r / 4)*sin(kat), (r / 4)*cos(kat), 10);
 
 
@@ -147,7 +147,7 @@ void Bieznia::Rysuj(int R , int r)
 	}
 	glEnd();
 
-	glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
+	//glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
 
 	glColor3f(0, 0.8, 0.2);
 	float wysokosc = 0.0f;

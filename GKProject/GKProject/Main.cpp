@@ -43,10 +43,10 @@ static GLfloat xPos = 150.0f;		//wsp drona
 static GLfloat yPos = 150.0f;
 static GLfloat zPos = 100.0f;
 static GLfloat przes = 2.0f;	//,,szybkosc" przesuwania dronem
-static GLfloat zoomValueInc = 3.0f;		//,,szybkosc" przyblizania
+static GLfloat zoomValueInc = 0.4f;		//,,szybkosc" przyblizania
 static GLfloat temp = 0.3f;
 static GLfloat prop = 0.3f;
-static GLfloat przyblizenie = 25.0f;
+static GLfloat przyblizenie = 2.0f;
 int przyc = 0;				//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
@@ -574,8 +574,17 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 	switch (message)
 	{
+	case WM_TIMER:
+		if (wParam == 100)
+		{
+			//xPos += przes;
+
+			InvalidateRect(hWnd, NULL, true);
+		}
+		break;
 		// Window creation, setup for OpenGL
 	case WM_CREATE:
+		SetTimer(hWnd, 100, 20, NULL);
 		// Store the device context
 		hDC = GetDC(hWnd);
 
