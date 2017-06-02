@@ -55,6 +55,7 @@ GLfloat ytemp = 0.0f;
 
 Dron dron;
 
+static GLfloat droneRotInc = 1.0f;
 static GLfloat xDroneRot = 0.0f;	//do obrotu dronem
 static GLfloat yDroneRot = 0.0f;
 static GLfloat zDroneRot = 0.0f;
@@ -716,6 +717,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 		przes = 4.0f;
 
+		//sterowanie pozycj¹ drona
 		if (wParam == 'd' || wParam == 'D') //(wParam == 'b' || wParam == 'B')
 		{
 			xPos += przes;
@@ -746,6 +748,38 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			zPos -= przes;
 		}
 
+		//sterowanie ,,pochyleniem" kamery
+		if (wParam == 'u' || wParam == 'U')
+		{
+			yRot -= 5.0f;
+		}
+
+		if (wParam == 'j' || wParam == 'J')
+		{
+			yRot += 5.0f;
+		}
+
+		if (wParam == 'h' || wParam == 'H')
+		{
+			xRot -= 5.0f;
+		}
+
+		if (wParam == 'k' || wParam == 'K')
+		{
+			xRot += 5.0f;
+		}
+
+		if (wParam == 'y' || wParam == 'Y')
+		{
+			zRot -= 5.0f;
+		}
+
+		if (wParam == 'i' || wParam == 'I')
+		{
+			zRot += 5.0f;
+		}
+
+		//sterowanie obrotami silnika
 		if (wParam == 'o' || wParam == 'O')	//zwiekszanie obrotów silnikow
 		{
 			if (rotateVal + rotateValInc <= 84)
@@ -768,46 +802,28 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			dron.SetRotate(rotateVal);
 		}
 
-		/*if (wParam == VK_UP)
-		xRot -= 5.0f;
+		
+
+		
+		//sterowanie pochyleniem drona
+		if (wParam == VK_UP)
+		{
+			xDroneRot += droneRotInc;
+		}
 
 		if (wParam == VK_DOWN)
-		xRot += 5.0f;
+		{
+			xDroneRot -= droneRotInc;
+		}
 
 		if (wParam == VK_LEFT)
-		yRot -= 5.0f;
+		{
+			yDroneRot += droneRotInc;
+		}
 
 		if (wParam == VK_RIGHT)
-		yRot += 5.0f;*/
-
-		if (wParam == 'u' || wParam == 'U') 
 		{
-			yRot -= 5.0f;
-		}
-
-		if (wParam == 'j' || wParam == 'J') 
-		{
-			yRot += 5.0f;
-		}
-
-		if (wParam == 'h' || wParam == 'H') 
-		{
-			xRot -= 5.0f;
-		}
-
-		if (wParam == 'k' || wParam == 'K') 
-		{
-			xRot += 5.0f;
-		}
-
-		if (wParam == 'y' || wParam == 'Y')
-		{
-			zRot -= 5.0f;
-		}
-
-		if (wParam == 'i' || wParam == 'I')
-		{
-			zRot += 5.0f;
+			yDroneRot -= droneRotInc;
 		}
 
 
