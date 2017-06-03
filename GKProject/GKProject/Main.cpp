@@ -2,7 +2,7 @@
 //Wy³šczanie b³êdów przed "fopen"
 #define  _CRT_SECURE_NO_WARNINGS
 
-
+#define _GLIBCXX_USE_NANOSLEEP	//asyncF
 
 // £adowanie bibliotek:
 
@@ -33,6 +33,7 @@
 #include <stdio.h>
 #include "resource.h"           // About box resource identifiers.
 #include "Scene.h"
+#include <thread>				//asyncF
 
 #define glRGB(x, y, z)	glColor3ub((GLubyte)x, (GLubyte)y, (GLubyte)z)
 #define BITMAP_ID 0x4D42		// identyfikator formatu BMP
@@ -40,20 +41,41 @@
 
 ////////////////////////////////////////////////////
 static GLfloat xPos = 150.0f;		//wsp drona
+
 static GLfloat yPos = 150.0f;
 static GLfloat zPos = 100.0f;
+static GLfloat zPosPocz = zPos;
 static GLfloat przes = 2.0f;			//,,szybkosc" przesuwania dronem
 static GLfloat zoomValueInc = 0.4f;		//,,szybkosc" przyblizania
 static GLfloat temp = 0.3f;
 static GLfloat prop = 0.3f;
 static GLfloat przyblizenie = 5.0f;
 static GLfloat rotateVal = 1;			//szybkosc obrotu smigiel
-static GLfloat rotateValInc = 1.0f;		//szybkosc zmiany predkosci smigiel
+static GLfloat rotateValInc = 4.0f;		//szybkosc zmiany predkosci smigiel
 int przyc = 0;							//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
 
 Dron dron;
+
+static GLfloat przedzialCzasowy = 0.1f;
+
+static GLfloat timeStart = 0;		//przedzial czasowy do wzorow
+static GLfloat timeInc = 0.01f;
+static GLfloat predkosc = 0;
+static GLfloat predkoscPoczatkowa = 0;
+static GLfloat droga = 0;
+static GLfloat maxPredkosc = 4;
+static GLfloat przyspieszenieG = 0;
+static GLfloat przyspieszenieCiagu = 0;
+static GLfloat przyspieszenieMaxCiagu = 20;
+static GLfloat przyspieszenieWypadkowe = 0;
+static GLfloat masa = 0.5f;
+//static GLfloat ciag = 0;
+//static GLfloat maxCiag = 40;
+//static GLfloat silaGrawitacji = grawitacja * masa;
+//static GLfloat silaCiagu = 0;
+//static GLfloat silaWypadkowa = 0;
 
 static GLfloat droneRotInc = 2.0f;
 static GLfloat xDroneRot = 0.0f;	//do obrotu dronem
@@ -347,10 +369,7 @@ void RenderScene(void)
 	//glTranslated(xPos, yPos, zPos);
 	//glRotatef(xDroneRot, 1, 0, 0);
 	//glRotatef(yDroneRot, 0, 1, 0);
-		
-
-
-
+	
 
 	dron.ChangePosition(xPos, yPos, zPos);
 	dron.ChangeRotation(xDroneRot, yDroneRot, 0);
@@ -500,6 +519,25 @@ HPALETTE GetOpenGLPalette(HDC hDC)
 }
 
 
+void task(int time)	//asyncF
+{
+	while (1)
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(time));
+		/*xPos += -2;*/
+		//timeStart += timeInc;
+		timeStart += 0.01f;
+		przyspieszenieWypadkowe = (przyspieszenieCiagu - przyspieszenieG)/masa;	//Fw = (Fc-Fg)/m -> F=a/m
+		//przyspieszenieWypadkowe = (przyspieszenieCiagu - przyspieszenieG);
+		predkosc = predkoscPoczatkowa + przyspieszenieWypadkowe * timeStart;	//v(t)
+		droga = predkoscPoczatkowa*timeStart + (przyspieszenieWypadkowe*timeStart*timeStart)/2.0f;	//s(t)
+		zPos = zPosPocz + droga;
+	}
+	//std::thread bt(task, 1);	//asyncF
+	//bt.join();
+}
+
+
 // Entry point of all Windows programs
 int APIENTRY WinMain(HINSTANCE       hInst,
 	HINSTANCE       hPrevInstance,
@@ -511,6 +549,12 @@ int APIENTRY WinMain(HINSTANCE       hInst,
 	HWND            hWnd;           // Storeage for window handle
 
 	hInstance = hInst;
+
+	////////////////////////////////////////////////////////////////
+	///////
+	std::thread bt(task,10);	//asyncF
+	///////
+	////////////////////////////////////////////////////////////////
 
 	// Register Window style
 	wc.style = CS_HREDRAW | CS_VREDRAW;
@@ -563,7 +607,7 @@ int APIENTRY WinMain(HINSTANCE       hInst,
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 	}
-
+	bt.join();
 	return msg.wParam;
 }
 
@@ -582,12 +626,28 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 	switch (message)
 	{
 	case WM_TIMER:
-		if (wParam == 100)
-		{
-			//xPos += przes;
-			InvalidateRect(hWnd, NULL, true);
-		}
-		break;
+		//if (wParam == 100)
+		//{
+		//	/*if (timeStart == 0)
+		//	{
+		//		predkoscPoczatkowa = predkosc;
+		//		zPosPocz = zPos;
+		//		droga = 0;
+		//		timeStart += timeInc;
+		//	}
+		//	else
+		//	{
+		//		timeStart += timeInc;
+		//	}*/
+		//	//timeStart += timeInc;
+		//	
+		//	//xPos += przes;
+		//	//GLfloat silaWypadkowa = silaCiagu - silaGrawitacji; //Fw = Fc-Fg
+		//	//zPos += (silaWypadkowa*0.1f*0.1f)/2;				//s = (a*t^2)/2
+
+		//	InvalidateRect(hWnd, NULL, true);
+		//}
+		//break;
 		// Window creation, setup for OpenGL
 	case WM_CREATE:
 		SetTimer(hWnd, 100, 20, NULL);
@@ -789,20 +849,35 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			if (rotateVal + rotateValInc <= 84)
 			{
 				rotateVal += rotateValInc;
+				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu;	//obliczenie sily ciagu F = m*a
+				timeStart = 0;
+				droga = 0;
+				
+				predkoscPoczatkowa = predkosc;
+				zPosPocz = zPos;
+				
 			}
 			dron.SetRotate(rotateVal);
 		}
 
 		if (wParam == 'p' || wParam == 'P')//zmniejszanie obrotów silnikow
 		{
-			if (rotateVal - rotateValInc > 0)
+			if (rotateVal - rotateValInc > -84)
 			{
 				rotateVal -= rotateValInc;
+				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu; //obliczenie sily ciagu F = m*a
+				timeStart = 0;
+				droga = 0;
+
+				predkoscPoczatkowa = predkosc;
+				zPosPocz = zPos;
+				
 			}
-			else
+			/*else
 			{
 				rotateVal = 0;
-			}
+				przyspieszenieCiagu = 0;
+			}*/
 			dron.SetRotate(rotateVal);
 		}
 
