@@ -38,8 +38,8 @@ Dron::~Dron()
 
 void Dron::Draw()
 {
-	//Coordinate coordinate(true);
-	//coordinate.Draw();
+	Coordinate coordinate(true);
+	coordinate.Draw();
 
 	
 

@@ -41,7 +41,6 @@
 
 ////////////////////////////////////////////////////
 static GLfloat xPos = 150.0f;		//wsp drona
-
 static GLfloat yPos = 150.0f;
 static GLfloat zPos = 100.0f;
 static GLfloat zPosPocz = zPos;
@@ -53,6 +52,7 @@ static GLfloat przyblizenie = 5.0f;
 static GLfloat rotateVal = 1;			//szybkosc obrotu smigiel
 static GLfloat rotateValInc = 4.0f;		//szybkosc zmiany predkosci smigiel
 int przyc = 0;							//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
+
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
 
@@ -66,10 +66,12 @@ static GLfloat predkosc = 0;
 static GLfloat predkoscPoczatkowa = 0;
 static GLfloat droga = 0;
 static GLfloat maxPredkosc = 4;
-static GLfloat przyspieszenieG = 0;
+static GLfloat przyspieszenieG = 10;
 static GLfloat przyspieszenieCiagu = 0;
 static GLfloat przyspieszenieMaxCiagu = 20;
-static GLfloat przyspieszenieWypadkowe = 0;
+static GLfloat przyspieszenieWypX = 0;
+static GLfloat przyspieszenieWypY = 0;
+static GLfloat przyspieszenieWypZ = 0;
 static GLfloat masa = 0.5f;
 //static GLfloat ciag = 0;
 //static GLfloat maxCiag = 40;
@@ -372,7 +374,7 @@ void RenderScene(void)
 	
 
 	dron.ChangePosition(xPos, yPos, zPos);
-	dron.ChangeRotation(xDroneRot, yDroneRot, 0);
+	dron.ChangeRotation(xDroneRot, yDroneRot, zDroneRot);
 	dron.Draw();
 	glPopMatrix();
 	
@@ -523,15 +525,29 @@ void task(int time)	//asyncF
 {
 	while (1)
 	{
+		//double radian = 3.1415 / 180;
 		std::this_thread::sleep_for(std::chrono::milliseconds(time));
 		/*xPos += -2;*/
 		//timeStart += timeInc;
 		timeStart += 0.01f;
-		przyspieszenieWypadkowe = (przyspieszenieCiagu - przyspieszenieG)/masa;	//Fw = (Fc-Fg)/m -> F=a/m
+
+		przyspieszenieWypX = (przyspieszenieCiagu * cos(yDroneRot * 3.14f / 180.0f)) / masa;
+		przyspieszenieWypY = (przyspieszenieCiagu * cos(xDroneRot * 3.14f / 180.0f)) / masa;
+		//przyspieszenieWypZ = abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2));
+		przyspieszenieWypZ = abs(pow(przyspieszenieCiagu,2)-pow(abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2)),2));
+		
+		zDroneRot =- atan2(xDroneRot, yDroneRot) / (3.14f / 180.0f) -90;
+		//zDroneRot = 45;
+		
+		//przyspieszenieWypZ = (przyspieszenieCiagu * sin(xDroneRot * 3.14f / 180.0f) + przyspieszenieCiagu * cos(yDroneRot * 3.14f / 180.0f)) / masa;
+		//zDroneRot = atan2(xDroneRot, yDroneRot)/ radian;
+
+		//przyspieszenieWypZ = (przyspieszenieCiagu - przyspieszenieG)/masa;	//Fw = (Fc-Fg)/m -> F=a/m
+		
 		//przyspieszenieWypadkowe = (przyspieszenieCiagu - przyspieszenieG);
-		predkosc = predkoscPoczatkowa + przyspieszenieWypadkowe * timeStart;	//v(t)
-		droga = predkoscPoczatkowa*timeStart + (przyspieszenieWypadkowe*timeStart*timeStart)/2.0f;	//s(t)
-		zPos = zPosPocz + droga;
+		predkosc = predkoscPoczatkowa + przyspieszenieWypZ * timeStart;	//v(t)
+		droga = predkoscPoczatkowa*timeStart + (przyspieszenieWypZ*timeStart*timeStart)/2.0f;	//s(t)
+		//zPos = zPosPocz + droga;
 	}
 	//std::thread bt(task, 1);	//asyncF
 	//bt.join();
@@ -626,28 +642,29 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 	switch (message)
 	{
 	case WM_TIMER:
-		//if (wParam == 100)
-		//{
-		//	/*if (timeStart == 0)
-		//	{
-		//		predkoscPoczatkowa = predkosc;
-		//		zPosPocz = zPos;
-		//		droga = 0;
-		//		timeStart += timeInc;
-		//	}
-		//	else
-		//	{
-		//		timeStart += timeInc;
-		//	}*/
-		//	//timeStart += timeInc;
-		//	
-		//	//xPos += przes;
-		//	//GLfloat silaWypadkowa = silaCiagu - silaGrawitacji; //Fw = Fc-Fg
-		//	//zPos += (silaWypadkowa*0.1f*0.1f)/2;				//s = (a*t^2)/2
+		if (wParam == 100)
+		{
+			//zDroneRot = 45;
+			/*if (timeStart == 0)
+			{
+				predkoscPoczatkowa = predkosc;
+				zPosPocz = zPos;
+				droga = 0;
+				timeStart += timeInc;
+			}
+			else
+			{
+				timeStart += timeInc;
+			}*/
+			//timeStart += timeInc;
+			
+			//xPos += przes;
+			//GLfloat silaWypadkowa = silaCiagu - silaGrawitacji; //Fw = Fc-Fg
+			//zPos += (silaWypadkowa*0.1f*0.1f)/2;				//s = (a*t^2)/2
 
-		//	InvalidateRect(hWnd, NULL, true);
-		//}
-		//break;
+			InvalidateRect(hWnd, NULL, true);
+		}
+		break;
 		// Window creation, setup for OpenGL
 	case WM_CREATE:
 		SetTimer(hWnd, 100, 20, NULL);
