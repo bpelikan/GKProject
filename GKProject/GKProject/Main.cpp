@@ -76,6 +76,7 @@ static GLfloat drogaY = 0;
 static GLfloat drogaZ = 0;
 
 static GLfloat maxPredkosc = 40;
+static GLfloat oporPowietrza = 0.996f;
 static GLfloat przyspieszenieG = 5;
 static GLfloat przyspieszenieCiagu = 0;
 static GLfloat przyspieszenieMaxCiagu = 20;
@@ -603,7 +604,7 @@ void task(int time)	//asyncF
 			przyspieszenieWypX = (przyspieszenieCiagu * cos((yDroneRot-90)* 3.14f / 180.0f)) / masa;
 			//przyspieszenieWypX = (przyspieszenieCiagu * yDroneRot * 3.14f / 180.0f) / masa;
 			
-			predkoscX = predkoscPoczatkowaX + przyspieszenieWypX * timeStart;	//v(t)
+			predkoscX = (predkoscPoczatkowaX * oporPowietrza + przyspieszenieWypX * timeStart);	//v(t)
 			if (abs(predkoscX) > maxPredkosc)
 			{
 				if (predkoscX > 0)
@@ -620,7 +621,7 @@ void task(int time)	//asyncF
 
 
 			przyspieszenieWypY = (przyspieszenieCiagu * cos((xDroneRot + 90)* 3.14f / 180.0f)) / masa;
-			predkoscY = predkoscPoczatkowaY + przyspieszenieWypY * timeStart;	//v(t)
+			predkoscY = (predkoscPoczatkowaY * oporPowietrza + przyspieszenieWypY * timeStart);	//v(t)
 			if (abs(predkoscY) > maxPredkosc)
 			{
 				if (predkoscY > 0)
@@ -672,7 +673,7 @@ void task(int time)	//asyncF
 				sin((yDroneRot + 90)* 3.14f / 180.0f) *
 				sin((xDroneRot + 90)* 3.14f / 180.0f)) - przyspieszenieG) / masa;
 
-			predkoscZ = predkoscPoczatkowaZ + (przyspieszenieWypZ) * timeStart;	//v(t)
+			predkoscZ = (predkoscPoczatkowaZ * oporPowietrza + (przyspieszenieWypZ) * timeStart);	//v(t)
 			if (abs(predkoscZ) > maxPredkosc)
 			{
 				if (predkoscZ > 0)
