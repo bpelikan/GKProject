@@ -43,6 +43,8 @@
 static GLfloat xPos = 150.0f;		//wsp drona
 static GLfloat yPos = 150.0f;
 static GLfloat zPos = 100.0f;
+static GLfloat xPosPocz = xPos;
+static GLfloat yPosPocz = yPos;
 static GLfloat zPosPocz = zPos;
 static GLfloat przes = 2.0f;			//,,szybkosc" przesuwania dronem
 static GLfloat zoomValueInc = 0.4f;		//,,szybkosc" przyblizania
@@ -62,10 +64,18 @@ static GLfloat przedzialCzasowy = 0.1f;
 
 static GLfloat timeStart = 0;		//przedzial czasowy do wzorow
 static GLfloat timeInc = 0.01f;
-static GLfloat predkosc = 0;
-static GLfloat predkoscPoczatkowa = 0;
-static GLfloat droga = 0;
-static GLfloat maxPredkosc = 4;
+
+static GLfloat predkoscX = 0;
+static GLfloat predkoscY = 0;
+static GLfloat predkoscZ = 0;
+static GLfloat predkoscPoczatkowaX = 0;
+static GLfloat predkoscPoczatkowaY = 0;
+static GLfloat predkoscPoczatkowaZ = 0;
+static GLfloat drogaX = 0;
+static GLfloat drogaY = 0;
+static GLfloat drogaZ = 0;
+
+static GLfloat maxPredkosc = 40;
 static GLfloat przyspieszenieG = 10;
 static GLfloat przyspieszenieCiagu = 0;
 static GLfloat przyspieszenieMaxCiagu = 20;
@@ -118,6 +128,42 @@ BOOL APIENTRY AboutDlgProc(HWND hDlg, UINT message, UINT wParam, LONG lParam);
 // Set Pixel Format function - forward declaration
 void SetDCPixelFormat(HDC hDC);
 
+
+void ZapiszNowyStan()
+{
+	timeStart = 0;
+
+	predkoscPoczatkowaX = predkoscX;
+	predkoscPoczatkowaY = predkoscY;
+	predkoscPoczatkowaZ = predkoscZ;
+	xPosPocz = xPos;
+	yPosPocz = yPos;
+	zPosPocz = zPos;
+	drogaX = 0;
+	drogaY = 0;
+	drogaZ = 0;
+}
+
+void ZablokujPrzechylenie()
+{
+	/*if (xDroneRot > 90)
+	{
+		xDroneRot = 90;
+	}
+	else if (xDroneRot < -90)
+	{
+		xDroneRot = -90;
+	}
+
+	if (yDroneRot > 90)
+	{
+		yDroneRot = 90;
+	}
+	else if (yDroneRot < -90)
+	{
+		yDroneRot = -90;
+	}*/
+}
 
 
 // Reduces a normal vector specified as a set of three coordinates,
@@ -373,6 +419,7 @@ void RenderScene(void)
 	//glRotatef(yDroneRot, 0, 1, 0);
 	
 
+
 	dron.ChangePosition(xPos, yPos, zPos);
 	dron.ChangeRotation(xDroneRot, yDroneRot, zDroneRot);
 	dron.Draw();
@@ -530,24 +577,84 @@ void task(int time)	//asyncF
 		/*xPos += -2;*/
 		//timeStart += timeInc;
 		timeStart += 0.01f;
+		zDroneRot = -atan2(xDroneRot, yDroneRot) / (3.14f / 180.0f) - 90;
 
-		przyspieszenieWypX = (przyspieszenieCiagu * cos(yDroneRot * 3.14f / 180.0f)) / masa;
-		przyspieszenieWypY = (przyspieszenieCiagu * cos(xDroneRot * 3.14f / 180.0f)) / masa;
+		//przyspieszenieWypX = (przyspieszenieCiagu * cos(yDroneRot * 3.14f / 180.0f)) / masa;
+		//przyspieszenieWypY = (przyspieszenieCiagu * cos(xDroneRot * 3.14f / 180.0f));
 		//przyspieszenieWypZ = abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2));
-		przyspieszenieWypZ = abs(pow(przyspieszenieCiagu,2)-pow(abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2)),2));
+		//przyspieszenieWypZ = abs(pow(przyspieszenieCiagu,2)-pow(abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2)),2));
+
 		
-		zDroneRot =- atan2(xDroneRot, yDroneRot) / (3.14f / 180.0f) -90;
 		//zDroneRot = 45;
-		
+
 		//przyspieszenieWypZ = (przyspieszenieCiagu * sin(xDroneRot * 3.14f / 180.0f) + przyspieszenieCiagu * cos(yDroneRot * 3.14f / 180.0f)) / masa;
 		//zDroneRot = atan2(xDroneRot, yDroneRot)/ radian;
 
+		//
 		//przyspieszenieWypZ = (przyspieszenieCiagu - przyspieszenieG)/masa;	//Fw = (Fc-Fg)/m -> F=a/m
-		
-		//przyspieszenieWypadkowe = (przyspieszenieCiagu - przyspieszenieG);
-		predkosc = predkoscPoczatkowa + przyspieszenieWypZ * timeStart;	//v(t)
-		droga = predkoscPoczatkowa*timeStart + (przyspieszenieWypZ*timeStart*timeStart)/2.0f;	//s(t)
-		//zPos = zPosPocz + droga;
+		//
+
+		//przyspieszenieWypZ = (przyspieszenieCiagu - przyspieszenieG) / masa;	//Fw = (Fc-Fg)/m -> F=a/m
+		////przyspieszenieWypadkowe = (przyspieszenieCiagu - przyspieszenieG);
+		//predkoscZ = predkoscPoczatkowaZ + przyspieszenieWypZ * timeStart;	//v(t)
+		//drogaZ = predkoscPoczatkowaZ*timeStart + (przyspieszenieWypZ*timeStart*timeStart)/2.0f;	//s(t)
+		//zPos = zPosPocz + drogaZ;
+		if(timeStart>0 ){
+			przyspieszenieWypX = (przyspieszenieCiagu * cos((yDroneRot-90)* 3.14f / 180.0f)) / masa;
+			//przyspieszenieWypX = (przyspieszenieCiagu * yDroneRot * 3.14f / 180.0f) / masa;
+			
+			predkoscX = predkoscPoczatkowaX + przyspieszenieWypX * timeStart;	//v(t)
+			if (abs(predkoscX) > maxPredkosc)
+			{
+				if (predkoscX > 0)
+				{
+					predkoscX = maxPredkosc;
+				}
+				else
+				{
+					predkoscX = -maxPredkosc;
+				}
+			}
+			drogaX = predkoscPoczatkowaX*timeStart + (przyspieszenieWypX*timeStart*timeStart) / 2.0f;
+			xPos = xPosPocz + drogaX;
+
+
+			przyspieszenieWypY = (przyspieszenieCiagu * cos((xDroneRot + 90)* 3.14f / 180.0f)) / masa;
+			predkoscY = predkoscPoczatkowaY + przyspieszenieWypY * timeStart;	//v(t)
+			if (abs(predkoscY) > maxPredkosc)
+			{
+				if (predkoscY > 0)
+				{
+					predkoscY = maxPredkosc;
+				}
+				else
+				{
+					predkoscY = -maxPredkosc;
+				}
+			}
+			drogaY = predkoscPoczatkowaY*timeStart + (przyspieszenieWypY*timeStart*timeStart) / 2.0f;
+			yPos = yPosPocz + drogaY;
+
+			//przyspieszenieWypZ = abs(pow(przyspieszenieCiagu, 2) - pow(abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2)), 2));
+			//przyspieszenieWypZ -= przyspieszenieG / masa;
+			//predkoscZ = predkoscPoczatkowaZ + przyspieszenieWypZ * timeStart;	//v(t)
+			//if (abs(predkoscZ) > maxPredkosc)
+			//{
+			//	if (predkoscZ > 0)
+			//	{
+			//		predkoscZ = maxPredkosc;
+			//	}
+			//	else
+			//	{
+			//		predkoscZ = -maxPredkosc;
+			//	}
+			//}
+			//drogaZ = predkoscPoczatkowaZ*timeStart + (przyspieszenieWypZ*timeStart*timeStart) / 2.0f;
+			//zPos = zPosPocz + drogaZ;
+
+
+		}
+		ZapiszNowyStan();
 	}
 	//std::thread bt(task, 1);	//asyncF
 	//bt.join();
@@ -641,30 +748,36 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 	switch (message)
 	{
-	case WM_TIMER:
-		if (wParam == 100)
-		{
-			//zDroneRot = 45;
-			/*if (timeStart == 0)
+		case WM_TIMER:
+			if (wParam == 100)
 			{
+				//timeStart += 0.01f;
+				//przyspieszenieWypX = (przyspieszenieCiagu * yDroneRot * 3.14f / 180.0f) / masa;
+				//predkoscX = predkoscPoczatkowaX + przyspieszenieWypX * timeStart;	//v(t)
+				//drogaX = predkoscPoczatkowaX*timeStart + (przyspieszenieWypX*timeStart*timeStart) / 2.0f;
+				//xPos = xPosPocz + drogaX;
+
+
+				//zDroneRot = 45;
+				/*if (timeStart == 0)
+				{
 				predkoscPoczatkowa = predkosc;
 				zPosPocz = zPos;
 				droga = 0;
 				timeStart += timeInc;
-			}
-			else
-			{
+				}
+				else
+				{
 				timeStart += timeInc;
-			}*/
-			//timeStart += timeInc;
-			
-			//xPos += przes;
-			//GLfloat silaWypadkowa = silaCiagu - silaGrawitacji; //Fw = Fc-Fg
-			//zPos += (silaWypadkowa*0.1f*0.1f)/2;				//s = (a*t^2)/2
+				}*/
+				//timeStart += timeInc;
 
-			InvalidateRect(hWnd, NULL, true);
-		}
-		break;
+				//xPos += przes;
+				//GLfloat silaWypadkowa = silaCiagu - silaGrawitacji; //Fw = Fc-Fg
+				//zPos += (silaWypadkowa*0.1f*0.1f)/2;				//s = (a*t^2)/2
+				InvalidateRect(hWnd, NULL, true);
+			}
+			break;
 		// Window creation, setup for OpenGL
 	case WM_CREATE:
 		SetTimer(hWnd, 100, 20, NULL);
@@ -866,29 +979,22 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			if (rotateVal + rotateValInc <= 84)
 			{
 				rotateVal += rotateValInc;
-				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu;	//obliczenie sily ciagu F = m*a
-				timeStart = 0;
-				droga = 0;
+				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu;	//obliczenie sily/przyspieszenia ciagu
 				
-				predkoscPoczatkowa = predkosc;
-				zPosPocz = zPos;
-				
+
+				ZapiszNowyStan();
 			}
 			dron.SetRotate(rotateVal);
 		}
 
-		if (wParam == 'p' || wParam == 'P')//zmniejszanie obrotów silnikow
+		if (wParam == 'p' || wParam == 'P')	//zmniejszanie obrotów silnikow
 		{
-			if (rotateVal - rotateValInc > -84)
+			if (rotateVal - rotateValInc >= -84)
 			{
 				rotateVal -= rotateValInc;
-				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu; //obliczenie sily ciagu F = m*a
-				timeStart = 0;
-				droga = 0;
-
-				predkoscPoczatkowa = predkosc;
-				zPosPocz = zPos;
+				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu; //obliczenie sily/przyspieszenia ciagu
 				
+				ZapiszNowyStan();
 			}
 			/*else
 			{
@@ -897,8 +1003,6 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			}*/
 			dron.SetRotate(rotateVal);
 		}
-
-		
 
 		
 		//sterowanie pochyleniem drona
@@ -922,6 +1026,8 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			yDroneRot -= droneRotInc;
 		}
 
+		ZablokujPrzechylenie();
+
 
 		/*if (wParam == 'o' || wParam == 'O')
 		{
@@ -943,6 +1049,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		xRot = (const int)xRot % 360;
 		yRot = (const int)yRot % 360;
 
+		//Test();
 		InvalidateRect(hWnd, NULL, FALSE);
 	}
 	break;
@@ -1021,6 +1128,8 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			xtemp = LOWORD(lParam);
 			ytemp = HIWORD(lParam);
 
+			//Test();
+			//ZapiszNowyStan();
 			InvalidateRect(hWnd, NULL, FALSE);
 		}
 		else if(przyc == -1)	//srterowanie pochyleniem prawym przyciskiem myszy
@@ -1032,6 +1141,10 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			xtemp = LOWORD(lParam);
 			ytemp = HIWORD(lParam);
 
+			ZablokujPrzechylenie();
+
+			//Test();
+			//ZapiszNowyStan();
 			InvalidateRect(hWnd, NULL, FALSE);
 		}
 		
