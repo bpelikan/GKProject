@@ -76,7 +76,7 @@ static GLfloat drogaY = 0;
 static GLfloat drogaZ = 0;
 
 static GLfloat maxPredkosc = 40;
-static GLfloat przyspieszenieG = 10;
+static GLfloat przyspieszenieG = 5;
 static GLfloat przyspieszenieCiagu = 0;
 static GLfloat przyspieszenieMaxCiagu = 20;
 static GLfloat przyspieszenieWypX = 0;
@@ -635,22 +635,57 @@ void task(int time)	//asyncF
 			drogaY = predkoscPoczatkowaY*timeStart + (przyspieszenieWypY*timeStart*timeStart) / 2.0f;
 			yPos = yPosPocz + drogaY;
 
-			//przyspieszenieWypZ = abs(pow(przyspieszenieCiagu, 2) - pow(abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2)), 2));
-			//przyspieszenieWypZ -= przyspieszenieG / masa;
-			//predkoscZ = predkoscPoczatkowaZ + przyspieszenieWypZ * timeStart;	//v(t)
-			//if (abs(predkoscZ) > maxPredkosc)
-			//{
-			//	if (predkoscZ > 0)
-			//	{
-			//		predkoscZ = maxPredkosc;
-			//	}
-			//	else
-			//	{
-			//		predkoscZ = -maxPredkosc;
-			//	}
+
+
+			/*if (przyspieszenieCiagu > 0)
+			{
+				przyspieszenieWypZ = abs(pow(przyspieszenieCiagu, 2) - pow(abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2)), 2));
+			}
+			else
+			{
+				przyspieszenieWypZ = -abs(pow(przyspieszenieCiagu, 2) - pow(abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2)), 2));
+			}*/
+			
+			/*if(abs(xDroneRot) == 0 && abs(yDroneRot) == 0)
+			{
+				przyspieszenieWypZ = ((przyspieszenieCiagu) - przyspieszenieG) / masa;
+			}
+			else
+			{*/
+				
 			//}
-			//drogaZ = predkoscPoczatkowaZ*timeStart + (przyspieszenieWypZ*timeStart*timeStart) / 2.0f;
-			//zPos = zPosPocz + drogaZ;
+
+			/*else if (abs(yDroneRot) > 0 && abs(xDroneRot) > 0)
+			{
+				przyspieszenieWypZ = ((przyspieszenieCiagu * sin((xDroneRot + 90)* 3.14f / 180.0f)) - przyspieszenieG) / masa;
+			}*/
+			/*else if (abs(xDroneRot) > 0)
+			{
+				przyspieszenieWypZ = ((przyspieszenieCiagu * sin((xDroneRot + 90)* 3.14f / 180.0f)) - przyspieszenieG) / masa;
+			}
+			else if (abs(yDroneRot) > 0)
+			{
+				przyspieszenieWypZ = ((przyspieszenieCiagu * sin((yDroneRot + 90)* 3.14f / 180.0f)) - przyspieszenieG) / masa;
+			}*/
+
+			przyspieszenieWypZ = ((przyspieszenieCiagu *
+				sin((yDroneRot + 90)* 3.14f / 180.0f) *
+				sin((xDroneRot + 90)* 3.14f / 180.0f)) - przyspieszenieG) / masa;
+
+			predkoscZ = predkoscPoczatkowaZ + (przyspieszenieWypZ) * timeStart;	//v(t)
+			if (abs(predkoscZ) > maxPredkosc)
+			{
+				if (predkoscZ > 0)
+				{
+					predkoscZ = maxPredkosc;
+				}
+				else
+				{
+					predkoscZ = -maxPredkosc;
+				}
+			}
+			drogaZ = predkoscPoczatkowaZ*timeStart + (przyspieszenieWypZ*timeStart*timeStart) / 2.0f;
+			zPos = zPosPocz + drogaZ;
 
 
 		}
