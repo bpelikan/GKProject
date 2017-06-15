@@ -209,5 +209,8 @@ void Stadion::Rysuj()
 	}	
 
 	glDisable(GL_TEXTURE_2D);
+	glDeleteTextures(2, &texture[0]);
+	glDeleteTextures(2, &texture[1]);
+
 }		
 

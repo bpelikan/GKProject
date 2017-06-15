@@ -185,4 +185,7 @@ void Bieznia::Rysuj(int R , int r)
 	}glEnd();
 	glDisable(GL_TEXTURE_2D);
 
+	glDeleteTextures(2, &texture[0]);
+	glDeleteTextures(2, &texture[2]);
+	glDeleteTextures(2, &texture[3]);
 }
