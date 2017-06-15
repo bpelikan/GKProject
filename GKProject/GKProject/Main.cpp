@@ -77,7 +77,7 @@ static GLfloat drogaZ = 0;
 
 static GLfloat maxPredkosc = 40;
 static GLfloat oporPowietrza = 0.996f;
-static GLfloat przyspieszenieG = 5;
+static GLfloat przyspieszenieG = 5;	//5
 static GLfloat przyspieszenieCiagu = 0;
 static GLfloat przyspieszenieMaxCiagu = 20;
 static GLfloat przyspieszenieWypX = 0;
@@ -174,52 +174,37 @@ void UstawKolizje()
 	GLfloat wysokoscPierwszyStopien = 90;
 	GLfloat wysokoscOstatniStopien = 190;
 
-
-
-
 	//kolizja z pod³o¿em
 	if (zPos < 5.7f)	//6
 	{
 		zPos = 5.7f;
 	}
-	
 
-	/*if (zPos < wysokoscPierwszyStopien)
-	{
-		if (odleglosc >= odlegloscMaxWewn)
-		{
-			float kat = atan2(yPos, xPos);
-			xPos = odlegloscMaxWewn * cos(kat);
-			yPos = odlegloscMaxWewn * sin(kat);
-			ZapiszNowyStan();
-		}
-	}*/
-
-	if(zPos > wysokoscOstatniStopien)	//najwy¿szy stopieñ
-	{
-		zPos = wysokoscOstatniStopien;
-		if (odleglosc >= odlegloscMaxZewn)
-		{
-			GLfloat kat = atan2(yPos, xPos);
-			xPos = odlegloscMaxZewn * cos(kat);
-			yPos = odlegloscMaxZewn * sin(kat);
-			ZapiszNowyStan();
-		}
-	}
-	else if ((zPos < wysokoscOstatniStopien && zPos > wysokoscPierwszyStopien))	//œrodkowy stopieñ
+	//kolizja ze stadionem
+	//if(zPos > wysokoscOstatniStopien)	//najwy¿szy stopieñ (powy¿ej stadionu)
+	//{
+	//	zPos = wysokoscOstatniStopien;
+	//	if (odleglosc >= odlegloscMaxZewn)	//ograniczenie przed wyleceniem poza stadion
+	//	{
+	//		GLfloat kat = atan2(yPos, xPos);
+	//		xPos = odlegloscMaxZewn * cos(kat);
+	//		yPos = odlegloscMaxZewn * sin(kat);
+	//		ZapiszNowyStan();
+	//	}
+	//}
+	//else 
+	if ((zPos < wysokoscOstatniStopien && zPos > wysokoscPierwszyStopien))	//œrodkowy stopieñ
 	{
 		GLfloat katStadionu = atan2((wysokoscOstatniStopien - wysokoscPierwszyStopien),(odlegloscMaxZewn - odlegloscMaxWewn));
 		GLfloat odlPrim = (zPos - wysokoscPierwszyStopien) / (tan(katStadionu));
-		GLfloat odlegloscAkt = (odlegloscMaxWewn + odlPrim);
-		//ZapiszNowyStan();
+		GLfloat odlegloscAkt = (odlegloscMaxWewn + odlPrim) - 10;
 		if (odleglosc > odlegloscAkt)
 		{
 			float kat = atan2(yPos, xPos);
 			xPos = odlegloscAkt * cos(kat);
 			yPos = odlegloscAkt * sin(kat);
-			zPos = odlPrim*tan(katStadionu) + wysokoscPierwszyStopien;
-			//predkoscPoczatkowaZ*timeStart + (przyspieszenieWypZ*timeStart*timeStart) / 2.0f
-			//zPos = 
+			predkoscX = 0;
+			predkoscY = 0;
 			ZapiszNowyStan();
 		}
 	}
@@ -230,8 +215,6 @@ void UstawKolizje()
 		yPos = odlegloscMaxWewn * sin(kat);
 		ZapiszNowyStan();
 	}
-
-	//abs(pow(xPos, 2) + pow(yPos, 2))
 
 }
 
