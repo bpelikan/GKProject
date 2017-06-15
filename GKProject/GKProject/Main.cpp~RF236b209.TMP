@@ -168,66 +168,18 @@ void ZablokujPrzechylenie()
 
 void UstawKolizje()
 {
-	GLfloat odleglosc = sqrt(pow(xPos, 2) + pow(yPos, 2));
-	GLfloat odlegloscMaxWewn = 322;
-	GLfloat odlegloscMaxZewn = 550;
-	GLfloat wysokoscPierwszyStopien = 90;
-	GLfloat wysokoscOstatniStopien = 190;
-
-
-
-
 	//kolizja z pod³o¿em
 	if (zPos < 5.7f)	//6
 	{
 		zPos = 5.7f;
 	}
-	
-
-	/*if (zPos < wysokoscPierwszyStopien)
+	GLfloat odleglosc = sqrt(pow(xPos, 2) + pow(yPos, 2));
+	GLfloat odlegloscMax = 200;
+	if (odleglosc >= odlegloscMax)
 	{
-		if (odleglosc >= odlegloscMaxWewn)
-		{
-			float kat = atan2(yPos, xPos);
-			xPos = odlegloscMaxWewn * cos(kat);
-			yPos = odlegloscMaxWewn * sin(kat);
-			ZapiszNowyStan();
-		}
-	}*/
-
-	if(zPos > wysokoscOstatniStopien)	//najwy¿szy stopieñ
-	{
-		zPos = wysokoscOstatniStopien;
-		if (odleglosc >= odlegloscMaxZewn)
-		{
-			GLfloat kat = atan2(yPos, xPos);
-			xPos = odlegloscMaxZewn * cos(kat);
-			yPos = odlegloscMaxZewn * sin(kat);
-			ZapiszNowyStan();
-		}
-	}
-	else if ((zPos < wysokoscOstatniStopien && zPos > wysokoscPierwszyStopien))	//œrodkowy stopieñ
-	{
-		GLfloat katStadionu = atan2((wysokoscOstatniStopien - wysokoscPierwszyStopien),(odlegloscMaxZewn - odlegloscMaxWewn));
-		GLfloat odlPrim = (zPos - wysokoscPierwszyStopien) / (tan(katStadionu));
-		GLfloat odlegloscAkt = (odlegloscMaxWewn + odlPrim);
-		//ZapiszNowyStan();
-		if (odleglosc > odlegloscAkt)
-		{
-			float kat = atan2(yPos, xPos);
-			xPos = odlegloscAkt * cos(kat);
-			yPos = odlegloscAkt * sin(kat);
-			zPos = odlPrim*tan(katStadionu) + wysokoscPierwszyStopien;
-			//predkoscPoczatkowaZ*timeStart + (przyspieszenieWypZ*timeStart*timeStart) / 2.0f
-			//zPos = 
-			ZapiszNowyStan();
-		}
-	}
-	else if (zPos < wysokoscPierwszyStopien && odleglosc >= odlegloscMaxWewn)	//dolny stopieñ
-	{
-		GLfloat kat = atan2(yPos, xPos);
-		xPos = odlegloscMaxWewn * cos(kat);
-		yPos = odlegloscMaxWewn * sin(kat);
+		float kat = atan2(yPos, xPos);
+		xPos = odlegloscMax * cos(kat);
+		yPos = odlegloscMax * sin(kat);
 		ZapiszNowyStan();
 	}
 

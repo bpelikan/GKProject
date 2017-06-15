@@ -200,7 +200,7 @@ void UstawKolizje()
 		zPos = wysokoscOstatniStopien;
 		if (odleglosc >= odlegloscMaxZewn)
 		{
-			GLfloat kat = atan2(yPos, xPos);
+			float kat = atan2(yPos, xPos);
 			xPos = odlegloscMaxZewn * cos(kat);
 			yPos = odlegloscMaxZewn * sin(kat);
 			ZapiszNowyStan();
@@ -208,24 +208,21 @@ void UstawKolizje()
 	}
 	else if ((zPos < wysokoscOstatniStopien && zPos > wysokoscPierwszyStopien))	//œrodkowy stopieñ
 	{
-		GLfloat katStadionu = atan2((wysokoscOstatniStopien - wysokoscPierwszyStopien),(odlegloscMaxZewn - odlegloscMaxWewn));
-		GLfloat odlPrim = (zPos - wysokoscPierwszyStopien) / (tan(katStadionu));
-		GLfloat odlegloscAkt = (odlegloscMaxWewn + odlPrim);
+		float katStadionu = atan2((wysokoscOstatniStopien - wysokoscPierwszyStopien),(odlegloscMaxZewn - odlegloscMaxWewn));
+		GLfloat odlegloscAkt = (odlegloscMaxWewn + (zPos - wysokoscPierwszyStopien) / (tan(katStadionu)));
 		//ZapiszNowyStan();
 		if (odleglosc > odlegloscAkt)
 		{
 			float kat = atan2(yPos, xPos);
 			xPos = odlegloscAkt * cos(kat);
 			yPos = odlegloscAkt * sin(kat);
-			zPos = odlPrim*tan(katStadionu) + wysokoscPierwszyStopien;
-			//predkoscPoczatkowaZ*timeStart + (przyspieszenieWypZ*timeStart*timeStart) / 2.0f
 			//zPos = 
 			ZapiszNowyStan();
 		}
 	}
-	else if (zPos < wysokoscPierwszyStopien && odleglosc >= odlegloscMaxWewn)	//dolny stopieñ
+	else if (zPos < wysokoscPierwszyStopien && odleglosc >= odlegloscMaxWewn)
 	{
-		GLfloat kat = atan2(yPos, xPos);
+		float kat = atan2(yPos, xPos);
 		xPos = odlegloscMaxWewn * cos(kat);
 		yPos = odlegloscMaxWewn * sin(kat);
 		ZapiszNowyStan();
