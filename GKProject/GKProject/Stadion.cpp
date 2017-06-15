@@ -14,55 +14,55 @@ Stadion::~Stadion()
 void Stadion::Rysuj()
 {
 
-	//BITMAPINFOHEADER    bitmapInfoHeader;   // nag³ówek obrazu
-	//unsigned char*      bitmapData;         // dane tekstury
-	//unsigned int        texture[4];         // obiekt tekstury
+	BITMAPINFOHEADER    bitmapInfoHeader;   // nag³ówek obrazu
+	unsigned char*      bitmapData;         // dane tekstury
+	unsigned int        texture[4];         // obiekt tekstury
 
-	//glGenTextures(2, &texture[0]);                  // tworzy obiekt tekstury
+	glGenTextures(2, &texture[0]);                  // tworzy obiekt tekstury
 
-	//tekstura Teksture;
+	tekstura Teksture;
 
-	//bitmapData = Teksture.LoadBitmapFile("tekst3.bmp", &bitmapInfoHeader);
-	//glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	bitmapData = Teksture.LoadBitmapFile("tekst3.bmp", &bitmapInfoHeader);
+	glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
 
-	//// tworzy obraz tekstury
-	//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
-	//	bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
+	// tworzy obraz tekstury
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
+		bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
 
-	//if (bitmapData)
-	//	free(bitmapData);
+	if (bitmapData)
+		free(bitmapData);
 
-	//glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 
-
-	////glGenTextures(2, &texture[1]);                  // tworzy obiekt tekstury
-	////bitmapData = Teksture.LoadBitmapFile("tekst2", &bitmapInfoHeader);
-	////glBindTexture(GL_TEXTURE_2D, texture[1]);       // aktywuje obiekt tekstury
 
 	//glGenTextures(2, &texture[1]);                  // tworzy obiekt tekstury
-
-
-	//bitmapData = Teksture.LoadBitmapFile("tekst4.bmp", &bitmapInfoHeader);
+	//bitmapData = Teksture.LoadBitmapFile("tekst2", &bitmapInfoHeader);
 	//glBindTexture(GL_TEXTURE_2D, texture[1]);       // aktywuje obiekt tekstury
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glGenTextures(2, &texture[1]);                  // tworzy obiekt tekstury
 
-	//// tworzy obraz tekstury
-	//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
-	//	bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
 
-	//if (bitmapData)
-	//	free(bitmapData);
+	bitmapData = Teksture.LoadBitmapFile("tekst4.bmp", &bitmapInfoHeader);
+	glBindTexture(GL_TEXTURE_2D, texture[1]);       // aktywuje obiekt tekstury
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	//glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
+	// tworzy obraz tekstury
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bitmapInfoHeader.biWidth,
+		bitmapInfoHeader.biHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmapData);
+
+	if (bitmapData)
+		free(bitmapData);
+
+	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 
 
 	// tworzy obraz tekstury
@@ -149,12 +149,12 @@ void Stadion::Rysuj()
 	glEnd();
 
 	
-	//glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
+	glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
 
 	for (int i = 100,h=25; i < 170; i += 10,h+=5)
 	{
 
-		//glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
+		glBindTexture(GL_TEXTURE_2D, texture[0]);       // aktywuje obiekt tekstury
 
 		int jj = 0;
 		int ii = 0;
@@ -179,7 +179,7 @@ void Stadion::Rysuj()
 		glEnd();
 
 		glColor3ub(192, 192, 192);
-		//glBindTexture(GL_TEXTURE_2D, texture[1]);       // aktywuje obiekt tekstury
+		glBindTexture(GL_TEXTURE_2D, texture[1]);       // aktywuje obiekt tekstury
 		glBegin(GL_TRIANGLE_STRIP);
 
 		ii = 0;
