@@ -34,6 +34,7 @@
 #include "resource.h"           // About box resource identifiers.
 #include "Scene.h"
 #include <thread>				//asyncF
+#include <AntTweakBar.h>
 
 #define glRGB(x, y, z)	glColor3ub((GLubyte)x, (GLubyte)y, (GLubyte)z)
 #define BITMAP_ID 0x4D42		// identyfikator formatu BMP
@@ -115,6 +116,7 @@ static GLsizei lastWidth;
 BITMAPINFOHEADER	bitmapInfoHeader;	// nag³ówek obrazu
 unsigned char*		bitmapData;			// dane tekstury
 unsigned int		texture[2];			// obiekt tekstury
+
 
 
 										// Declaration for Window procedure
@@ -314,6 +316,7 @@ void ChangeSize(GLsizei w, GLsizei h)
 // the scene.
 void SetupRC()
 {
+
 	// Light values and coordinates
 	//GLfloat  ambientLight[] = { 0.3f, 0.3f, 0.3f, 1.0f };
 	//GLfloat  diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
@@ -352,6 +355,8 @@ void SetupRC()
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	// Black brush
 	glColor3f(0.0, 0.0, 0.0);
+	TwInit(TW_OPENGL, NULL);
+
 }
 
 
@@ -429,6 +434,8 @@ void RenderScene(void)
 {
 	//float normal[3];	// Storeage for calculated surface normal
 
+	
+
 	// Clear the window with current clearing color
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -483,7 +490,9 @@ void RenderScene(void)
 
 	Bieznia bieznia;
 	bieznia.Rysuj(100, 60);
-	
+
+	TwDraw();
+
 	//
 	///////////////////////////////////////////////////////////////////
 
@@ -617,6 +626,7 @@ HPALETTE GetOpenGLPalette(HDC hDC)
 	free(pPal);
 
 	// Return the handle to the new palette
+
 	return hRetPal;
 }
 
@@ -749,7 +759,6 @@ void task(int time)	//asyncF
 	//bt.join();
 }
 
-
 // Entry point of all Windows programs
 int APIENTRY WinMain(HINSTANCE       hInst,
 	HINSTANCE       hPrevInstance,
@@ -761,6 +770,7 @@ int APIENTRY WinMain(HINSTANCE       hInst,
 	HWND            hWnd;           // Storeage for window handle
 
 	hInstance = hInst;
+
 
 	////////////////////////////////////////////////////////////////
 	///////
@@ -812,6 +822,17 @@ int APIENTRY WinMain(HINSTANCE       hInst,
 	// Display the window
 	ShowWindow(hWnd, SW_SHOW);
 	UpdateWindow(hWnd);
+	TwBar *myBar;
+	RECT r;
+	GetClientRect(hWnd, &r);
+	TwWindowSize(r.right - r.left, r.bottom - r.top);
+	myBar = TwNewBar("Opcje");
+	TwAddVarRW(myBar, "Masa", TW_TYPE_FLOAT, &masa, " min=0.1 max=2 step=0.1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
+	TwAddVarRW(myBar, "Opor Powietrza", TW_TYPE_FLOAT, &oporPowietrza, " min=0.996 max=3 step=0.1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
+	TwAddVarRW(myBar, "Grawitacja", TW_TYPE_FLOAT, &przyspieszenieG, " min=0 max=10 step=1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
+	TwAddVarRW(myBar, "Przyspieszenie ciagu", TW_TYPE_FLOAT, &przyspieszenieCiagu, " min=-40 max=40 step=1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
+	TwAddVarRW(myBar, "Max predkosc", TW_TYPE_FLOAT, &maxPredkosc, " min=0 max=100 step=2 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
+
 
 	// Process application messages until the application closes
 	while (GetMessage(&msg, NULL, 0, 0))
@@ -820,6 +841,8 @@ int APIENTRY WinMain(HINSTANCE       hInst,
 		DispatchMessage(&msg);
 	}
 	bt.join();
+
+
 	return msg.wParam;
 }
 
@@ -834,6 +857,11 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 {
 	static HGLRC hRC;               // Permenant Rendering context
 	static HDC hDC;                 // Private GDI Device context
+
+	if (TwEventWin(hWnd, message, wParam, lParam)) // send event message to AntTweakBar
+	return 0; // event has been handled by AntTweakBar
+					  // else process the event message
+					  // ...
 
 	switch (message)
 	{
@@ -1059,7 +1087,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 		if (wParam == 'i' || wParam == 'I')
 		{
-			zRot += 5.0f;
+			zRot += 5.0f;	
 		}
 
 		//sterowanie obrotami silnika
@@ -1247,6 +1275,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		{
 			// Exit the program
 		case ID_FILE_EXIT:
+			TwTerminate();
 			DestroyWindow(hWnd);
 			break;
 
