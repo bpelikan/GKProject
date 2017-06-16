@@ -56,6 +56,7 @@ static GLfloat rotateVal = 1;			//szybkosc obrotu smigiel
 static GLfloat rotateValInc = 4.0f;		//szybkosc zmiany predkosci smigiel
 int przyc = 0;							//czy wcisniety jest lewy przycisk myszy(1) lub prawy (-1)
 
+static GLfloat pom_opor = 0;
 GLfloat xtemp = 0.0f;			//zmienne tymczasowe dla wsp kursora myszki
 GLfloat ytemp = 0.0f;
 
@@ -827,12 +828,17 @@ int APIENTRY WinMain(HINSTANCE       hInst,
 	GetClientRect(hWnd, &r);
 	TwWindowSize(r.right - r.left, r.bottom - r.top);
 	myBar = TwNewBar("Opcje");
+	TwDefine(" GLOBAL iconpos = downleft");
+	TwDefine("Opcje color='48 48 48' alpha = 192 text = light");
+	TwDefine("GLOBAL fontsize = 3");
+	TwDefine(" GLOBAL color='192 0 192' text=dark ");
 	TwAddVarRW(myBar, "Masa", TW_TYPE_FLOAT, &masa, " min=0.1 max=2 step=0.1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
-	TwAddVarRW(myBar, "Opor Powietrza", TW_TYPE_FLOAT, &oporPowietrza, " min=0.996 max=3 step=0.1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
+	TwAddVarRW(myBar, "Opor Powietrza", TW_TYPE_FLOAT, &pom_opor, " min=0 max=100 step=1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
 	TwAddVarRW(myBar, "Grawitacja", TW_TYPE_FLOAT, &przyspieszenieG, " min=0 max=10 step=1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
-	TwAddVarRW(myBar, "Przyspieszenie ciagu", TW_TYPE_FLOAT, &przyspieszenieCiagu, " min=-40 max=40 step=1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
+	TwAddVarRW(myBar, "Przyspieszenie max ciagu", TW_TYPE_FLOAT, &przyspieszenieMaxCiagu, " min=-40 max=40 step=1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
 	TwAddVarRW(myBar, "Max predkosc", TW_TYPE_FLOAT, &maxPredkosc, " min=0 max=100 step=2 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
 
+	oporPowietrza = 1 - ((pom_opor / 100)*0.01);
 
 	// Process application messages until the application closes
 	while (GetMessage(&msg, NULL, 0, 0))
