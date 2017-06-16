@@ -480,6 +480,7 @@ void RenderScene(void)
 	//glRotatef(yDroneRot, 0, 1, 0);
 	
 
+	oporPowietrza = 1 - ((pom_opor / 100)*0.01);
 
 	dron.ChangePosition(xPos, yPos, zPos);
 	dron.ChangeRotation(xDroneRot, yDroneRot, zDroneRot);
@@ -838,7 +839,7 @@ int APIENTRY WinMain(HINSTANCE       hInst,
 	TwAddVarRW(myBar, "Przyspieszenie max ciagu", TW_TYPE_FLOAT, &przyspieszenieMaxCiagu, " min=-40 max=40 step=1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
 	TwAddVarRW(myBar, "Max predkosc", TW_TYPE_FLOAT, &maxPredkosc, " min=0 max=100 step=2 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
 
-	oporPowietrza = 1 - ((pom_opor / 100)*0.01);
+	/*oporPowietrza = 1 - ((pom_opor / 100)*0.01);*/
 
 	// Process application messages until the application closes
 	while (GetMessage(&msg, NULL, 0, 0))
