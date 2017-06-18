@@ -636,36 +636,17 @@ void task(int time)	//asyncF
 {
 	while (1)
 	{
-		//double radian = 3.1415 / 180;
 		std::this_thread::sleep_for(std::chrono::milliseconds(time));
-		/*xPos += -2;*/
-		//timeStart += timeInc;
+
 		timeStart += 0.01f;
 		zDroneRot = -atan2(xDroneRot, yDroneRot) / (3.14f / 180.0f) - 90;
 
-		//przyspieszenieWypX = (przyspieszenieCiagu * cos(yDroneRot * 3.14f / 180.0f)) / masa;
-		//przyspieszenieWypY = (przyspieszenieCiagu * cos(xDroneRot * 3.14f / 180.0f));
-		//przyspieszenieWypZ = abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2));
-		//przyspieszenieWypZ = abs(pow(przyspieszenieCiagu,2)-pow(abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2)),2));
-
-		
-		//zDroneRot = 45;
-
-		//przyspieszenieWypZ = (przyspieszenieCiagu * sin(xDroneRot * 3.14f / 180.0f) + przyspieszenieCiagu * cos(yDroneRot * 3.14f / 180.0f)) / masa;
-		//zDroneRot = atan2(xDroneRot, yDroneRot)/ radian;
-
-		//
-		//przyspieszenieWypZ = (przyspieszenieCiagu - przyspieszenieG)/masa;	//Fw = (Fc-Fg)/m -> F=a/m
-		//
-
-		//przyspieszenieWypZ = (przyspieszenieCiagu - przyspieszenieG) / masa;	//Fw = (Fc-Fg)/m -> F=a/m
-		////przyspieszenieWypadkowe = (przyspieszenieCiagu - przyspieszenieG);
-		//predkoscZ = predkoscPoczatkowaZ + przyspieszenieWypZ * timeStart;	//v(t)
-		//drogaZ = predkoscPoczatkowaZ*timeStart + (przyspieszenieWypZ*timeStart*timeStart)/2.0f;	//s(t)
-		//zPos = zPosPocz + drogaZ;
 		if(timeStart>0 ){
 			przyspieszenieWypX = (przyspieszenieCiagu * cos((yDroneRot-90)* 3.14f / 180.0f)) / masa;
-			//przyspieszenieWypX = (przyspieszenieCiagu * yDroneRot * 3.14f / 180.0f) / masa;
+			przyspieszenieWypY = (przyspieszenieCiagu * cos((xDroneRot + 90)* 3.14f / 180.0f)) / masa;
+			przyspieszenieWypZ = ((przyspieszenieCiagu *
+				sin((yDroneRot + 90)* 3.14f / 180.0f) *
+				sin((xDroneRot + 90)* 3.14f / 180.0f)) - przyspieszenieG) / masa;
 			
 			predkoscX = (predkoscPoczatkowaX * oporPowietrza + przyspieszenieWypX * timeStart);	//v(t)
 			if (abs(predkoscX) > maxPredkosc)
@@ -681,9 +662,7 @@ void task(int time)	//asyncF
 			}
 			drogaX = predkoscPoczatkowaX*timeStart + (przyspieszenieWypX*timeStart*timeStart) / 2.0f;
 			xPos = xPosPocz + drogaX;
-
-
-			przyspieszenieWypY = (przyspieszenieCiagu * cos((xDroneRot + 90)* 3.14f / 180.0f)) / masa;
+			
 			predkoscY = (predkoscPoczatkowaY * oporPowietrza + przyspieszenieWypY * timeStart);	//v(t)
 			if (abs(predkoscY) > maxPredkosc)
 			{
@@ -699,43 +678,6 @@ void task(int time)	//asyncF
 			drogaY = predkoscPoczatkowaY*timeStart + (przyspieszenieWypY*timeStart*timeStart) / 2.0f;
 			yPos = yPosPocz + drogaY;
 
-
-
-			/*if (przyspieszenieCiagu > 0)
-			{
-				przyspieszenieWypZ = abs(pow(przyspieszenieCiagu, 2) - pow(abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2)), 2));
-			}
-			else
-			{
-				przyspieszenieWypZ = -abs(pow(przyspieszenieCiagu, 2) - pow(abs(pow(przyspieszenieWypX, 2) + pow(przyspieszenieWypY, 2)), 2));
-			}*/
-			
-			/*if(abs(xDroneRot) == 0 && abs(yDroneRot) == 0)
-			{
-				przyspieszenieWypZ = ((przyspieszenieCiagu) - przyspieszenieG) / masa;
-			}
-			else
-			{*/
-				
-			//}
-
-			/*else if (abs(yDroneRot) > 0 && abs(xDroneRot) > 0)
-			{
-				przyspieszenieWypZ = ((przyspieszenieCiagu * sin((xDroneRot + 90)* 3.14f / 180.0f)) - przyspieszenieG) / masa;
-			}*/
-			/*else if (abs(xDroneRot) > 0)
-			{
-				przyspieszenieWypZ = ((przyspieszenieCiagu * sin((xDroneRot + 90)* 3.14f / 180.0f)) - przyspieszenieG) / masa;
-			}
-			else if (abs(yDroneRot) > 0)
-			{
-				przyspieszenieWypZ = ((przyspieszenieCiagu * sin((yDroneRot + 90)* 3.14f / 180.0f)) - przyspieszenieG) / masa;
-			}*/
-
-			przyspieszenieWypZ = ((przyspieszenieCiagu *
-				sin((yDroneRot + 90)* 3.14f / 180.0f) *
-				sin((xDroneRot + 90)* 3.14f / 180.0f)) - przyspieszenieG) / masa;
-
 			predkoscZ = (predkoscPoczatkowaZ * oporPowietrza + (przyspieszenieWypZ) * timeStart);	//v(t)
 			if (abs(predkoscZ) > maxPredkosc)
 			{
@@ -750,14 +692,10 @@ void task(int time)	//asyncF
 			}
 			drogaZ = predkoscPoczatkowaZ*timeStart + (przyspieszenieWypZ*timeStart*timeStart) / 2.0f;
 			zPos = zPosPocz + drogaZ;
-
-
 		}
 		ZapiszNowyStan();
 		UstawKolizje();
 	}
-	//std::thread bt(task, 1);	//asyncF
-	//bt.join();
 }
 
 // Entry point of all Windows programs
@@ -1104,8 +1042,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 				rotateVal += rotateValInc;
 				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu;	//obliczenie sily/przyspieszenia ciagu
 				
-
-				ZapiszNowyStan();
+				//ZapiszNowyStan();
 			}
 			dron.SetRotate(rotateVal);
 		}
@@ -1117,7 +1054,7 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 				rotateVal -= rotateValInc;
 				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu; //obliczenie sily/przyspieszenia ciagu
 				
-				ZapiszNowyStan();
+				//ZapiszNowyStan();
 			}
 			/*else
 			{
@@ -1270,7 +1207,6 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			//ZapiszNowyStan();
 			InvalidateRect(hWnd, NULL, FALSE);
 		}
-		
 	}
 	break;
 
@@ -1356,3 +1292,4 @@ BOOL APIENTRY AboutDlgProc(HWND hDlg, UINT message, UINT wParam, LONG lParam)
 
 	return FALSE;
 }
+
