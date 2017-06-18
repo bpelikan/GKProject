@@ -480,7 +480,7 @@ void RenderScene(void)
 	
 
 	oporPowietrza = 1 - ((pom_opor / 100)*0.01);
-
+	
 	dron.ChangePosition(xPos, yPos, zPos);
 	dron.ChangeRotation(xDroneRot, yDroneRot, zDroneRot);
 	dron.Draw();
@@ -1032,38 +1032,38 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		if (wParam == VK_RIGHT)
 		yRot += 5.0f;*/
 
-		przes = 4.0f;
+		//przes = 4.0f;
 
 		//sterowanie pozycj¹ drona
-		if (wParam == 'd' || wParam == 'D') //(wParam == 'b' || wParam == 'B')
-		{
-			xPos += przes;
-		}
+		//if (wParam == 'd' || wParam == 'D') //(wParam == 'b' || wParam == 'B')
+		//{
+		//	xPos += przes;
+		//}
 
-		if (wParam == 'w' || wParam == 'W') //(wParam == 'n' || wParam == 'N')
-		{
-			yPos += przes;
-		}
+		//if (wParam == 'w' || wParam == 'W') //(wParam == 'n' || wParam == 'N')
+		//{
+		//	yPos += przes;
+		//}
 
-		if (wParam == 'e' || wParam == 'E') //(wParam == 'm' || wParam == 'M')
-		{
-			zPos += przes;
-		}
+		//if (wParam == 'e' || wParam == 'E') //(wParam == 'm' || wParam == 'M')
+		//{
+		//	zPos += przes;
+		//}
 
-		if (wParam == 'a' || wParam == 'A') //(wParam == 'j' || wParam == 'J')
-		{
-			xPos -= przes;
-		}
+		//if (wParam == 'a' || wParam == 'A') //(wParam == 'j' || wParam == 'J')
+		//{
+		//	xPos -= przes;
+		//}
 
-		if (wParam == 's' || wParam == 'S') //(wParam == 'k' || wParam == 'K')
-		{
-			yPos -= przes;
-		}
+		//if (wParam == 's' || wParam == 'S') //(wParam == 'k' || wParam == 'K')
+		//{
+		//	yPos -= przes;
+		//}
 
-		if (wParam == 'q' || wParam == 'Q') //(wParam == 'l' || wParam == 'L')
-		{
-			zPos -= przes;
-		}
+		//if (wParam == 'q' || wParam == 'Q') //(wParam == 'l' || wParam == 'L')
+		//{
+		//	zPos -= przes;
+		//}
 
 		//sterowanie ,,pochyleniem" kamery
 		if (wParam == 'u' || wParam == 'U')
