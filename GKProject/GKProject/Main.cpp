@@ -184,19 +184,18 @@ void UstawKolizje()
 	}
 
 	//kolizja ze stadionem
-	//if(zPos > wysokoscOstatniStopien)	//najwy¿szy stopieñ (powy¿ej stadionu)
-	//{
-	//	zPos = wysokoscOstatniStopien;
-	//	if (odleglosc >= odlegloscMaxZewn)	//ograniczenie przed wyleceniem poza stadion
-	//	{
-	//		GLfloat kat = atan2(yPos, xPos);
-	//		xPos = odlegloscMaxZewn * cos(kat);
-	//		yPos = odlegloscMaxZewn * sin(kat);
-	//		ZapiszNowyStan();
-	//	}
-	//}
-	//else 
-	if ((zPos < wysokoscOstatniStopien && zPos > wysokoscPierwszyStopien))	//œrodkowy stopieñ
+	if(zPos > wysokoscOstatniStopien)	//najwy¿szy stopieñ (powy¿ej stadionu)
+	{
+		zPos = wysokoscOstatniStopien;
+		if (odleglosc >= odlegloscMaxZewn)	//ograniczenie przed wyleceniem poza stadion
+		{
+			GLfloat kat = atan2(yPos, xPos);
+			xPos = odlegloscMaxZewn * cos(kat);
+			yPos = odlegloscMaxZewn * sin(kat);
+			ZapiszNowyStan();
+		}
+	}
+	else if ((zPos < wysokoscOstatniStopien && zPos > wysokoscPierwszyStopien))	//œrodkowy stopieñ
 	{
 		GLfloat katStadionu = atan2((wysokoscOstatniStopien - wysokoscPierwszyStopien),(odlegloscMaxZewn - odlegloscMaxWewn));
 		GLfloat odlPrim = (zPos - wysokoscPierwszyStopien) / (tan(katStadionu));
