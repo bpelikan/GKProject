@@ -55,23 +55,6 @@ void Sfera::Draw(GLfloat angleA, GLfloat angleB, GLfloat r, GLfloat scaleX, GLfl
 			glVertex3f(r * cos((i + dens)*3.14f / 180.0f) * sin(j*3.14f / 180.0f),
 				r * cos(j*3.14f / 180.0f),
 				r * sin((i + dens)*3.14f / 180.0f) * sin(j*3.14f / 180.0f));
-
-			//
-			/*glVertex3f(wspPoczatkowe[0] + r * cos(i*3.14f / 180.0f) * sin(j*3.14f / 180.0f),
-				wspPoczatkowe[1] + r * cos(j*3.14f / 180.0f),
-				wspPoczatkowe[2] + r * sin(i*3.14f / 180.0f) * sin(j*3.14f / 180.0f));
-
-			glVertex3f(wspPoczatkowe[0] + r * cos(i*3.14f / 180.0f) * sin((j + dens)*3.14f / 180.0f),
-				wspPoczatkowe[1] + r * cos((j + dens)*3.14f / 180.0f),
-				wspPoczatkowe[2] + r * sin(i*3.14f / 180.0f) * sin((j + dens)*3.14f / 180.0f));
-
-			glVertex3f(wspPoczatkowe[0] + r * cos((i + dens)*3.14f / 180.0f) * sin((j + dens)*3.14f / 180.0f),
-				wspPoczatkowe[1] + r * cos((j + dens)*3.14f / 180.0f),
-				wspPoczatkowe[2] + r * sin((i + dens)*3.14f / 180.0f) * sin((j + dens)*3.14f / 180.0f));
-
-			glVertex3f(wspPoczatkowe[0] + r * cos((i + dens)*3.14f / 180.0f) * sin(j*3.14f / 180.0f),
-				wspPoczatkowe[1] + r * cos(j*3.14f / 180.0f),
-				wspPoczatkowe[2] + r * sin((i + dens)*3.14f / 180.0f) * sin(j*3.14f / 180.0f));*/
 		}
 	}
 	glEnd();

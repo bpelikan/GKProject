@@ -13,13 +13,6 @@ Drzewo::~Drzewo()
 
 void Drzewo::Rysuj(int x ,int y, int z)
 {
-
-	
-
-
-	
-
-
 	float PI = 3.1415;
 	glPushMatrix();
 	glTranslated(x, y, z);

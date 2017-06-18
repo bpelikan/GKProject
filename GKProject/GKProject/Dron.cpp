@@ -41,8 +41,6 @@ void Dron::Draw()
 	Coordinate coordinate(true);
 	coordinate.Draw();
 
-	
-
 	glRotated(-90, 0, 1, 0);
 	glScalef(0.2, 0.2, 0.2);
 
@@ -59,46 +57,6 @@ void Dron::Draw()
 
 	Skrzydla skrzydla;
 	skrzydla.Draw();
-	//skrzydla.Rotate(10);
-	
-	//////////////////////////////////////
-	///do usuniecia
-	//Nozka nozka;
-
-	////nó¿ki drona
-	//glScaled(0.5, 0.5, 0.5);
-	//glPushMatrix();
-	//glRotated(90, 0, 0, 1);
-	//glTranslated(75, 100, 0);
-	//nozka.Draw(40, 3, 40, -15);   // parametry to wysokoœæ , promieñ i d³ugoœæ nó¿ek i kat ( gdy damy za du¿y k¹t to utracimy 
-	//glPopMatrix();				// po³¹czenie pomiêdzy wygiêtym walcem a tym ale i tak powinnien on byæ ma³y
-
-	//glPushMatrix();
-	////Podwozie nozki2;
-	//glRotated(90, 0, 0, 1);
-	//glTranslated(75, 100, 110);
-	//nozka.Draw(40, 3, 40, 15);
-	//glPopMatrix();
-
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
-	/*Smiglo smiglo2;
-	Silnik stozekPodSmiglem2;
-	Smiglo smiglo3;
-	Silnik stozekPodSmiglem3;
-	Smiglo smiglo4;
-	Silnik stozekPodSmiglem4;*/
-
-	/*Walec walecPodSmiglem2;
-	Walec walecPodSmiglem3;
-	Walec walecPodSmiglem4;*/
-
-	/*glPushMatrix();		//niepotrzebne?
-	smiglo.Draw();
-	smiglo.Draw();
-	glRotatef(90, 0, 1, 0);
-	stozekPodSmiglem.Draw(4, 6, 8, 8);
-	glPopMatrix();*/
 }
 
 void Dron::ChangePosition(GLfloat wsp_X, GLfloat wsp_Y, GLfloat wsp_Z)

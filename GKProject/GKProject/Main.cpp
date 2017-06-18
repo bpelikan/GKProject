@@ -86,11 +86,6 @@ static GLfloat przyspieszenieWypX = 0;
 static GLfloat przyspieszenieWypY = 0;
 static GLfloat przyspieszenieWypZ = 0;
 static GLfloat masa = 0.5f;
-//static GLfloat ciag = 0;
-//static GLfloat maxCiag = 40;
-//static GLfloat silaGrawitacji = grawitacja * masa;
-//static GLfloat silaCiagu = 0;
-//static GLfloat silaWypadkowa = 0;
 
 static GLfloat droneRotInc = 2.0f;
 static GLfloat xDroneRot = 0.0f;	//do obrotu dronem
@@ -217,7 +212,6 @@ void UstawKolizje()
 		yPos = odlegloscMaxWewn * sin(kat);
 		ZapiszNowyStan();
 	}
-
 }
 
 
@@ -458,10 +452,6 @@ void RenderScene(void)
 
 	///////////////////////////////////////////////////////////////////
 	//
-
-	/*gluLookAt(4 + xPos*prop, 4 + yPos*prop, 4 + zPos*prop,
-		xPos*prop, yPos*prop, zPos*prop,
-		0, 0, 1);*/
 	gluLookAt(xPos*prop, 4 + yPos*prop, 4 + zPos*prop,
 		xPos*prop, yPos*prop, zPos*prop,
 		0, 0, 1);
@@ -473,12 +463,7 @@ void RenderScene(void)
 
 	glPushMatrix();
 	glScaled(prop, prop, prop);
-	//glTranslated(xPos, yPos, zPos);
-	//glTranslated(xPos, yPos, zPos);
-	//glRotatef(xDroneRot, 1, 0, 0);
-	//glRotatef(yDroneRot, 0, 1, 0);
 	
-
 	oporPowietrza = 1 - ((pom_opor / 100)*0.01);
 	
 	dron.ChangePosition(xPos, yPos, zPos);
@@ -495,20 +480,7 @@ void RenderScene(void)
 	TwDraw();
 
 	//
-	///////////////////////////////////////////////////////////////////
-
-
-
-
-	//szescian();
-	//ukl_wsp();
-
-	//GLfloat sa[3] = { 10,20,30 };
-	//GLfloat sa2[3] = { 20,40,30 }; //30 };
-	//GLfloat sa4[3] = { -10,-5,30 }; //30 };
-	//stozek(sa, 10, 40, 15, 10);
-	//rysujWalec(sa2, 1, 60);
-	//rysujWalec(sa4, 1, 60);
+	//////////////////////////////////////////////////////////////////
 
 
 	//Uzyskanie siatki:
@@ -776,8 +748,6 @@ int APIENTRY WinMain(HINSTANCE       hInst,
 	TwAddVarRW(myBar, "Przyspieszenie max ciagu", TW_TYPE_FLOAT, &przyspieszenieMaxCiagu, " min=-40 max=40 step=1 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
 	TwAddVarRW(myBar, "Max predkosc", TW_TYPE_FLOAT, &maxPredkosc, " min=0 max=100 step=2 keyIncr=s keyDecr=S help='Rotation speed (turns/second)' ");
 
-	/*oporPowietrza = 1 - ((pom_opor / 100)*0.01);*/
-
 	// Process application messages until the application closes
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
@@ -812,30 +782,6 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		case WM_TIMER:
 			if (wParam == 100)
 			{
-				//timeStart += 0.01f;
-				//przyspieszenieWypX = (przyspieszenieCiagu * yDroneRot * 3.14f / 180.0f) / masa;
-				//predkoscX = predkoscPoczatkowaX + przyspieszenieWypX * timeStart;	//v(t)
-				//drogaX = predkoscPoczatkowaX*timeStart + (przyspieszenieWypX*timeStart*timeStart) / 2.0f;
-				//xPos = xPosPocz + drogaX;
-
-
-				//zDroneRot = 45;
-				/*if (timeStart == 0)
-				{
-				predkoscPoczatkowa = predkosc;
-				zPosPocz = zPos;
-				droga = 0;
-				timeStart += timeInc;
-				}
-				else
-				{
-				timeStart += timeInc;
-				}*/
-				//timeStart += timeInc;
-
-				//xPos += przes;
-				//GLfloat silaWypadkowa = silaCiagu - silaGrawitacji; //Fw = Fc-Fg
-				//zPos += (silaWypadkowa*0.1f*0.1f)/2;				//s = (a*t^2)/2
 				InvalidateRect(hWnd, NULL, true);
 			}
 			break;
@@ -958,51 +904,6 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		// Key press, check for arrow keys to do cube rotation.
 	case WM_KEYDOWN:
 	{
-		/*if (wParam == VK_UP)
-		xRot -= 5.0f;
-
-		if (wParam == VK_DOWN)
-		xRot += 5.0f;
-
-		if (wParam == VK_LEFT)
-		yRot -= 5.0f;
-
-		if (wParam == VK_RIGHT)
-		yRot += 5.0f;*/
-
-		//przes = 4.0f;
-
-		//sterowanie pozycj¹ drona
-		//if (wParam == 'd' || wParam == 'D') //(wParam == 'b' || wParam == 'B')
-		//{
-		//	xPos += przes;
-		//}
-
-		//if (wParam == 'w' || wParam == 'W') //(wParam == 'n' || wParam == 'N')
-		//{
-		//	yPos += przes;
-		//}
-
-		//if (wParam == 'e' || wParam == 'E') //(wParam == 'm' || wParam == 'M')
-		//{
-		//	zPos += przes;
-		//}
-
-		//if (wParam == 'a' || wParam == 'A') //(wParam == 'j' || wParam == 'J')
-		//{
-		//	xPos -= przes;
-		//}
-
-		//if (wParam == 's' || wParam == 'S') //(wParam == 'k' || wParam == 'K')
-		//{
-		//	yPos -= przes;
-		//}
-
-		//if (wParam == 'q' || wParam == 'Q') //(wParam == 'l' || wParam == 'L')
-		//{
-		//	zPos -= przes;
-		//}
-
 		//sterowanie ,,pochyleniem" kamery
 		if (wParam == 'u' || wParam == 'U')
 		{
@@ -1041,8 +942,6 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			{
 				rotateVal += rotateValInc;
 				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu;	//obliczenie sily/przyspieszenia ciagu
-				
-				//ZapiszNowyStan();
 			}
 			dron.SetRotate(rotateVal);
 		}
@@ -1052,15 +951,8 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 			if (rotateVal - rotateValInc >= -84)
 			{
 				rotateVal -= rotateValInc;
-				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu; //obliczenie sily/przyspieszenia ciagu
-				
-				//ZapiszNowyStan();
+				przyspieszenieCiagu = (rotateVal / 84.0f) * przyspieszenieMaxCiagu; //obliczenie sily/przyspieszenia ciagu		
 			}
-			/*else
-			{
-				rotateVal = 0;
-				przyspieszenieCiagu = 0;
-			}*/
 			dron.SetRotate(rotateVal);
 		}
 
@@ -1088,28 +980,9 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 		ZablokujPrzechylenie();
 
-
-		/*if (wParam == 'o' || wParam == 'O')
-		{
-		przyblizenie -= 0.1f;
-		}
-
-		if (wParam == 'p' || wParam == 'P')
-		{
-		przyblizenie += 0.1f;
-		}*/
-
-	
-		/*if (wParam == WM_MOUSEWHEEL)
-		{
-			przyblizenie += 0.1f;
-		}*/
-
-
 		xRot = (const int)xRot % 360;
 		yRot = (const int)yRot % 360;
 
-		//Test();
 		InvalidateRect(hWnd, NULL, FALSE);
 	}
 	break;
@@ -1165,46 +1038,22 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		{
 			GLfloat skala = 0.1f;
 
-			/*if ((HIWORD(lParam) - ytemp) >= 0)
-			{
-			xRot += skala;
-			}
-			else
-			{
-			xRot -= skala;
-			}
-
-			if ((LOWORD(lParam) - xtemp) >= 0)
-			{
-			yRot += skala;
-			}
-			else
-			{
-			yRot -= skala;
-			}*/
-
 			xRot += (HIWORD(lParam) - ytemp)*skala;
 			yRot += (LOWORD(lParam) - xtemp)*skala;
 			xtemp = LOWORD(lParam);
 			ytemp = HIWORD(lParam);
 
-			//Test();
-			//ZapiszNowyStan();
 			InvalidateRect(hWnd, NULL, FALSE);
 		}
 		else if(przyc == -1)	//srterowanie pochyleniem prawym przyciskiem myszy
 		{
 			GLfloat skala = 0.2f;
-			//xDroneRot
 			xDroneRot -= (HIWORD(lParam) - ytemp)*skala;
 			yDroneRot -= (LOWORD(lParam) - xtemp)*skala;
 			xtemp = LOWORD(lParam);
 			ytemp = HIWORD(lParam);
-
 			ZablokujPrzechylenie();
 
-			//Test();
-			//ZapiszNowyStan();
 			InvalidateRect(hWnd, NULL, FALSE);
 		}
 	}

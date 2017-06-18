@@ -166,9 +166,9 @@
     <ClCompile Include="Lampa.cpp" />
     <ClCompile Include="Nozki.cpp" />
     <ClCompile Include="Podwozie.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sfera.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Skrzydla.cpp" />
     <ClCompile Include="Smiglo.cpp" />
     <ClCompile Include="Silnik.cpp" />
@@ -190,9 +190,9 @@
     <ClInclude Include="Lampa.h" />
     <ClInclude Include="Nozki.h" />
     <ClInclude Include="Podwozie.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Sfera.h" />
     <ClInclude Include="RESOURCE.h" />
-    <ClInclude Include="Scene.h" />
     <ClInclude Include="Skrzydla.h" />
     <ClInclude Include="Smiglo.h" />
     <ClInclude Include="Silnik.h" />

@@ -13,13 +13,6 @@
 #include "Stadion.h"
 #include <stdio.h>
 
-//#include "Szescian.h"
-//#include "Silnik.h"
-//#include "Walec.h"
-//#include "Sfera.h"
-//#include "Smiglo.h"
-//#include "Nozki.h"
-
 class Scene
 {
 public:
@@ -27,7 +20,6 @@ public:
 	Scene(GLfloat wspX, GLfloat wspY, GLfloat wspZ, GLfloat tp, GLfloat rotX, GLfloat rotY);
 	~Scene();
 public:
-	//unsigned char *LoadBitmapFile(char *filename, BITMAPINFOHEADER *bitmapInfoHeader);
 	void RenderScene();
 private:
 	static GLfloat wsp_X;

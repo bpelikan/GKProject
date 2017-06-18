@@ -10,5 +10,3 @@ public:
 	~Szescian();
 	void Draw();
 };
-
-//klasa do usuniêcia
